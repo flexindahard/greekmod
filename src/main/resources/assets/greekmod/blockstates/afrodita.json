@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=lower,facing=north": { "model": "greekmod:block/afrodita" },
+    "half=lower,facing=east":  { "model": "greekmod:block/afrodita" },
+    "half=lower,facing=south": { "model": "greekmod:block/afrodita" },
+    "half=lower,facing=west":  { "model": "greekmod:block/afrodita" },
+    "half=upper,facing=north": { "model": "greekmod:block/afrodita" },
+    "half=upper,facing=east":  { "model": "greekmod:block/afrodita" },
+    "half=upper,facing=south": { "model": "greekmod:block/afrodita" },
+    "half=upper,facing=west":  { "model": "greekmod:block/afrodita" }
+  }
+}

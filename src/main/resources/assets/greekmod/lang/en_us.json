@@ -1,0 +1,21 @@
+{
+  "creativetab.greekmod.greekmod_creative_tab": "Греция",
+
+  "block.greekmod.zeus": "Зевс",
+  "block.greekmod.afrodita": "Афродита",
+  "block.greekmod.poseidon": "Посейдон",
+  "block.greekmod.gray_1": "Серая Статуя Тип 1",
+  "block.greekmod.gray_2": "Серая Статуя Тип 2",
+  "block.greekmod.gray_3": "Серая Статуя Тип 3",
+  "block.greekmod.vase": "Ваза",
+  "block.greekmod.amfora": "Амфора",
+  "block.greekmod.amfora_shelf": "Полка с Амфорами",
+  "block.greekmod.psicter": "Псиктер",
+  "block.greekmod.kanfar": "Канфар",
+  "block.greekmod.artemida": "Артемида",
+  "block.greekmod.afina": "Афина",
+  "block.greekmod.afina_nika": "Афина-Ника",
+  "block.greekmod.kariatida": "Кариатида",
+  "block.greekmod.pot_table": "Гончарный столик",
+  "block.greekmod.little_pot": "Чашка"
+}

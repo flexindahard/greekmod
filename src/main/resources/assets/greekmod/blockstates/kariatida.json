@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=lower,facing=north": { "model": "greekmod:block/kariatida" },
+    "half=lower,facing=east":  { "model": "greekmod:block/kariatida" },
+    "half=lower,facing=south": { "model": "greekmod:block/kariatida" },
+    "half=lower,facing=west":  { "model": "greekmod:block/kariatida" },
+    "half=upper,facing=north": { "model": "greekmod:block/kariatida" },
+    "half=upper,facing=east":  { "model": "greekmod:block/kariatida" },
+    "half=upper,facing=south": { "model": "greekmod:block/kariatida" },
+    "half=upper,facing=west":  { "model": "greekmod:block/kariatida" }
+  }
+}
