@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,sign=1": {
+      "model": "greekmod:block/clay_sign"
+    },
+    "facing=east,sign=1": {
+      "model": "greekmod:block/clay_sign",
+      "y": 90
+    },
+    "facing=south,sign=1": {
+      "model": "greekmod:block/clay_sign",
+      "y": 180
+    },
+    "facing=west,sign=1": {
+      "model": "greekmod:block/clay_sign",
+      "y": 270
+    },
+    "facing=north,sign=2": {
+      "model": "greekmod:block/clay_sign_1"
+    },
+    "facing=east,sign=2": {
+      "model": "greekmod:block/clay_sign_1",
+      "y": 90
+    },
+    "facing=south,sign=2": {
+      "model": "greekmod:block/clay_sign_1",
+      "y": 180
+    },
+    "facing=west,sign=2": {
+      "model": "greekmod:block/clay_sign_1",
+      "y": 270
+    }
+  }
+}

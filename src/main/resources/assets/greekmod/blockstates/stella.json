@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=lower,facing=north": { "model": "greekmod:block/stella" },
+    "half=lower,facing=east":  { "model": "greekmod:block/stella" },
+    "half=lower,facing=south": { "model": "greekmod:block/stella" },
+    "half=lower,facing=west":  { "model": "greekmod:block/stella" },
+    "half=upper,facing=north": { "model": "greekmod:block/stella" },
+    "half=upper,facing=east":  { "model": "greekmod:block/stella" },
+    "half=upper,facing=south": { "model": "greekmod:block/stella" },
+    "half=upper,facing=west":  { "model": "greekmod:block/stella" }
+  }
+}
