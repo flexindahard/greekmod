@@ -24,7 +24,8 @@ public class ModBlockEntities {
                             ModBlocks.ARTEMIDA.get(),
                             ModBlocks.AFINA.get(),
                             ModBlocks.AFINA_NIKA.get(),
-                            ModBlocks.KARIATIDA.get()
+                            ModBlocks.KARIATIDA.get(),
+                            ModBlocks.STELLA.get()
                     ).build(null));
 
     public static void register(IEventBus iEventBus){

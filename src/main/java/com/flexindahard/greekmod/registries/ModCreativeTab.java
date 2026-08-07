@@ -38,9 +38,9 @@ public class ModCreativeTab {
         output.accept(RED_CARPET.get());
         output.accept(BLUE_CARPET.get());
         output.accept(CLAY_SIGN.get());
-        output.accept(CLAY_SIGN_1.get());
         output.accept(SCROLL_STACK.get());
         output.accept(SCROLL_SHELF.get());
+        output.accept(STELLA.get());
             }
     ).build());
 
