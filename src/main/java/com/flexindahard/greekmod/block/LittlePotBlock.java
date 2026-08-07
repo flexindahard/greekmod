@@ -6,7 +6,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -14,8 +13,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -39,11 +36,6 @@ public class LittlePotBlock extends HorizontalDirectionalRegularModBlocks {
     }
 
     @Override
-    public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-    }
-
-    @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         if (!pPlayer.isCreative())
             popResourceFromFace(pLevel, pPos, pState.getValue(FACING), new ItemStack(ModBlocks.LITTLE_POT.get(), pState.getValue(POTS)));
@@ -52,7 +44,6 @@ public class LittlePotBlock extends HorizontalDirectionalRegularModBlocks {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         int pots = pState.getValue(POTS);
         if (!pLevel.isClientSide) {
-
             if (!pPlayer.isCreative() && pots>1 && pots<4 && !(pPlayer.getMainHandItem() == ModBlocks.LITTLE_POT.get().asItem().getDefaultInstance()))
             {
                 popResourceFromFace(pLevel, pPos, pPlayer.getDirection().getOpposite(), ModBlocks.LITTLE_POT.get().asItem().getDefaultInstance());
@@ -69,10 +60,8 @@ public class LittlePotBlock extends HorizontalDirectionalRegularModBlocks {
                 pLevel.setBlock(pPos, pState.setValue(POTS, pots - 1), 3);
                 return InteractionResult.SUCCESS;
             }
-
         }
         return InteractionResult.sidedSuccess(pLevel.isClientSide);
-
         }
 
 }

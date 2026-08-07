@@ -1,9 +1,7 @@
 package com.flexindahard.greekmod.registries;
 
-import com.flexindahard.greekmod.Greekmod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,6 +35,12 @@ public class ModCreativeTab {
                         output.accept(PSICTER.get());
                         output.accept(KANFAR.get());
         output.accept(POT_TABLE.get());
+        output.accept(RED_CARPET.get());
+        output.accept(BLUE_CARPET.get());
+        output.accept(CLAY_SIGN.get());
+        output.accept(CLAY_SIGN_1.get());
+        output.accept(SCROLL_STACK.get());
+        output.accept(SCROLL_SHELF.get());
             }
     ).build());
 

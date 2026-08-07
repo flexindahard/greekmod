@@ -1,5 +1,6 @@
 package com.flexindahard.greekmod.registries;
 
+import com.flexindahard.greekmod.block.CarpetBlock;
 import com.flexindahard.greekmod.block.HorizontalDirectionalRegularModBlocks;
 import com.flexindahard.greekmod.block.LittlePotBlock;
 import com.flexindahard.greekmod.block.staticalComplexModels.GenericStaticalBlock;
@@ -130,6 +131,30 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));
+    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> CLAY_SIGN = registerBlock("clay_sign",
+            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> CLAY_SIGN_1 = registerBlock("clay_sign_1",
+            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> SCROLL_SHELF = registerBlock("scroll_shelf",
+            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> SCROLL_STACK = registerBlock("scroll_stack",
+            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
     public static final RegistryObject<LittlePotBlock> LITTLE_POT = registerBlock("little_pot",
             () -> new LittlePotBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
@@ -150,19 +175,18 @@ public class ModBlocks {
 //                    .mapColor(MapColor.TERRACOTTA_BROWN)
 //                    .strength(2.0f, 4f)
 //            ));
-//    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> LITTLE_POT_3 = BLOCKS.register("little_pot_3",
-//            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
-//                    .noOcclusion()
-//                    .mapColor(MapColor.TERRACOTTA_BROWN)
-//                    .strength(2.0f, 4f)
-//            ));
-//    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> LITTLE_POT_4 = BLOCKS.register("little_pot_4",
-//            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
-//                    .noOcclusion()
-//                    .mapColor(MapColor.TERRACOTTA_BROWN)
-//                    .strength(2.0f, 4f)
-//            ));
-
+    public static final RegistryObject<Block> RED_CARPET = registerBlock("red_carpet",
+            () -> new CarpetBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(1.0f, 2f)
+            ));
+    public static final RegistryObject<Block> BLUE_CARPET = registerBlock("blue_carpet",
+            () -> new CarpetBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(1.0f, 2f)
+            ));
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));

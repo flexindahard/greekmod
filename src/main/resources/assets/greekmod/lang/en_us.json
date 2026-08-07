@@ -17,5 +17,10 @@
   "block.greekmod.afina_nika": "Афина-Ника",
   "block.greekmod.kariatida": "Кариатида",
   "block.greekmod.pot_table": "Гончарный столик",
-  "block.greekmod.little_pot": "Чашка"
+  "block.greekmod.little_pot": "Чашка",
+  "block.greekmod.red_carpet": "Красный ковёр",
+  "block.greekmod.blue_carpet": "Синий ковёр",
+  "block.greekmod.clay_sign": "Глиняная табличка",
+  "block.greekmod.scroll_stack": "Стопка свитков",
+  "block.greekmod.scroll_shelf": "Полка для свитков"
 }
