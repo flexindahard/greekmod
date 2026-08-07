@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "carpet_state=plain,facing=north": {
+      "model": "greekmod:block/blue_carpet_plain",
+      "y": 270
+    },
+    "carpet_state=plain,facing=east": {
+      "model": "greekmod:block/blue_carpet_plain"
+    },
+    "carpet_state=plain,facing=south": {
+      "model": "greekmod:block/blue_carpet_plain",
+      "y": 90
+    },
+    "carpet_state=plain,facing=west": {
+      "model": "greekmod:block/blue_carpet_plain",
+      "y": 180
+    },
+    "carpet_state=corner,facing=north": {
+      "model": "greekmod:block/blue_carpet_corner",
+      "y": 90
+    },
+    "carpet_state=corner,facing=east": {
+      "model": "greekmod:block/blue_carpet_corner",
+      "y": 180
+    },
+    "carpet_state=corner,facing=south": {
+      "model": "greekmod:block/blue_carpet_corner",
+      "y": 270
+    },
+    "carpet_state=corner,facing=west": {
+      "model": "greekmod:block/blue_carpet_corner"
+    },
+    "carpet_state=middle,facing=north": {
+      "model": "greekmod:block/blue_carpet_middle"
+    },
+    "carpet_state=middle,facing=east": {
+      "model": "greekmod:block/blue_carpet_middle",
+      "y": 90
+    },
+    "carpet_state=middle,facing=south": {
+      "model": "greekmod:block/blue_carpet_middle",
+      "y": 180
+    },
+    "carpet_state=middle,facing=west": {
+      "model": "greekmod:block/blue_carpet_middle",
+      "y": 270
+    }
+  }
+}

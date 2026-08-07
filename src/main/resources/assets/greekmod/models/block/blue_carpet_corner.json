@@ -1,0 +1,7 @@
+{
+  "parent": "greekmod:block/red_carpet_plain",
+  "textures": {
+    "0": "greekmod:block/blue_carpet_corner",
+    "particle": "minecraft:block/blue_wool"
+  }
+}
