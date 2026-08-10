@@ -41,6 +41,13 @@ public class ModCreativeTab {
         output.accept(SCROLL_STACK.get());
         output.accept(SCROLL_SHELF.get());
         output.accept(STELLA.get());
+        output.accept(PIFOS.get());
+        output.accept(APOLLON.get());
+        output.accept(GERA.get());
+        output.accept(KIFARA.get());
+        output.accept(AMFORA_SHELF.get());
+        output.accept(AMFORA_NO_PATTERN.get());
+        output.accept(TRIPOD.get());
             }
     ).build());
 

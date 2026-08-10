@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=lower,facing=north": { "model": "greekmod:block/kifara" },
+    "half=lower,facing=east":  { "model": "greekmod:block/kifara" },
+    "half=lower,facing=south": { "model": "greekmod:block/kifara" },
+    "half=lower,facing=west":  { "model": "greekmod:block/kifara" },
+    "half=upper,facing=north": { "model": "greekmod:block/kifara" },
+    "half=upper,facing=east":  { "model": "greekmod:block/kifara" },
+    "half=upper,facing=south": { "model": "greekmod:block/kifara" },
+    "half=upper,facing=west":  { "model": "greekmod:block/kifara" }
+  }
+}

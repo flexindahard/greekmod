@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class ClaySignBlock extends HorizontalDirectionalRegularModBlocks{
+public class ClaySignBlock extends GenericModBlock {
     public ClaySignBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(defaultBlockState().setValue(SIGN, 1).setValue(FACING, Direction.NORTH));

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=lower,facing=north": { "model": "greekmod:block/apollon" },
+    "half=lower,facing=east":  { "model": "greekmod:block/apollon" },
+    "half=lower,facing=south": { "model": "greekmod:block/apollon" },
+    "half=lower,facing=west":  { "model": "greekmod:block/apollon" },
+    "half=upper,facing=north": { "model": "greekmod:block/apollon" },
+    "half=upper,facing=east":  { "model": "greekmod:block/apollon" },
+    "half=upper,facing=south": { "model": "greekmod:block/apollon" },
+    "half=upper,facing=west":  { "model": "greekmod:block/apollon" }
+  }
+}

@@ -1,4 +1,6 @@
 {
-
-  "parent": "greekmod:block/vase"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "greekmod:item/vase_icon"
+  }
 }

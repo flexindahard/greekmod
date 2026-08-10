@@ -1,3 +1,6 @@
 {
-  "parent": "greekmod:block/psicter"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "greekmod:item/psicter_icon"
+  }
 }

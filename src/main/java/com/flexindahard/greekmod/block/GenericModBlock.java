@@ -10,9 +10,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import org.jetbrains.annotations.Nullable;
 
-public class HorizontalDirectionalRegularModBlocks extends HorizontalDirectionalBlock {
+public class GenericModBlock extends HorizontalDirectionalBlock {
 
-    public HorizontalDirectionalRegularModBlocks(Properties pProperties) {
+    public GenericModBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH));

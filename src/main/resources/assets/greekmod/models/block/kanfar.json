@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "greekmod:block/kanfar",
-		"particle": "greekmod:block/kanfar"
+		"particle": "minecraft:block/terracotta"
 	},
 	"elements": [
 		{

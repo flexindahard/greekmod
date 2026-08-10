@@ -1,19 +1,19 @@
 {
   "variants": {
     "facing=north": {
-      "model": "greekmod:block/amfora"
-    },
-    "facing=east": {
       "model": "greekmod:block/amfora",
       "y": 90
     },
-    "facing=south": {
+    "facing=east": {
       "model": "greekmod:block/amfora",
       "y": 180
     },
-    "facing=west": {
+    "facing=south": {
       "model": "greekmod:block/amfora",
       "y": 270
+    },
+    "facing=west": {
+      "model": "greekmod:block/amfora"
     }
   }
 }

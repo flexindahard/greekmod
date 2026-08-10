@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "greekmod:item/amfora_icon"
+    "layer0": "greekmod:item/amfora_no_pattern_icon"
   }
 }
