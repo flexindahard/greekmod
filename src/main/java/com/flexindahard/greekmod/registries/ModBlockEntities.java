@@ -1,11 +1,8 @@
 package com.flexindahard.greekmod.registries;
 
 import com.flexindahard.greekmod.Greekmod;
-//import com.flexindahard.greekmod.block.ClayTableBlockEntity;
 import com.flexindahard.greekmod.block.staticalComplexModels.GenericStaticalGeoBlockEntity;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
