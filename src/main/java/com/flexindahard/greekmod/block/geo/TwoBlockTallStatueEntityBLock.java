@@ -22,11 +22,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class TwoGeoBlockTallStatueEntityBLock extends GenericStaticalGeoBlock {
+public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
-    public TwoGeoBlockTallStatueEntityBLock(Properties pProperties) {
+    public TwoBlockTallStatueEntityBLock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH)

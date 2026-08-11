@@ -8,7 +8,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PifosEntityGeoBlock extends GenericStaticalGeoBlock {
+public class PifosEntityEntityBlock extends GenericStaticalEntityBlock {
 
     public static final VoxelShape PIFOS_SHAPE = Shapes.or(
             Shapes.or(
@@ -45,7 +45,7 @@ public class PifosEntityGeoBlock extends GenericStaticalGeoBlock {
                     Block.box(16, 14, 8, 21, 24, 21)
             ));
 
-    public PifosEntityGeoBlock(Properties pProperties) {
+    public PifosEntityEntityBlock(Properties pProperties) {
         super(pProperties);
     }
 

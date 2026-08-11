@@ -12,12 +12,12 @@ public class StaticalGeoModel extends GeoModel {
 
     @Override
     public ResourceLocation getModelResource(GeoAnimatable animatable) {
-        return new ResourceLocation(Greekmod.MODID, ("geo/" + getPath((GenericStaticalGeoBlockEntity) animatable) + ".geo.json"));
+        return ResourceLocation.fromNamespaceAndPath(Greekmod.MODID, ("geo/" + getPath((GenericStaticalGeoBlockEntity) animatable) + ".geo.json"));
     }
 
     @Override
     public ResourceLocation getTextureResource(GeoAnimatable animatable) {
-        return new ResourceLocation(Greekmod.MODID, ("textures/block/" +getPath((GenericStaticalGeoBlockEntity) animatable) + ".png"));
+        return ResourceLocation.fromNamespaceAndPath(Greekmod.MODID, ("textures/block/" +getPath((GenericStaticalGeoBlockEntity) animatable) + ".png"));
     }
 
     @Override

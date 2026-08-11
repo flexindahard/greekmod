@@ -17,10 +17,10 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class GenericStaticalGeoBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class GenericStaticalEntityBlock extends HorizontalDirectionalBlock implements EntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public GenericStaticalGeoBlock(Properties pProperties) {
+    public GenericStaticalEntityBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH)

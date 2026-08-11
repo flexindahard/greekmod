@@ -9,7 +9,7 @@ public enum CarpetEnumProperty implements StringRepresentable {
 
     private final String name;
 
-    private CarpetEnumProperty(String pName) {
+     CarpetEnumProperty(String pName) {
         this.name = pName;
     }
 
