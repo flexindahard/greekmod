@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block;
+package com.flexindahard.greekmod.block.custom;
 
 import net.minecraft.util.StringRepresentable;
 

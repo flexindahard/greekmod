@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block.staticalComplexModels;
+package com.flexindahard.greekmod.block.geo;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;

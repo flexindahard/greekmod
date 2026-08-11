@@ -32,6 +32,7 @@ public class GenericModBlock extends HorizontalDirectionalBlock {
 
     @Override
     public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+
         return 0.9f;
     }
 }

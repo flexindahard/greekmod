@@ -1,8 +1,8 @@
 package com.flexindahard.greekmod.registries;
 
-import com.flexindahard.greekmod.block.*;
-import com.flexindahard.greekmod.block.staticalComplexModels.PifosEntityBlock;
-import com.flexindahard.greekmod.block.staticalComplexModels.TwoBlockTallStatueEntityBLock;
+import com.flexindahard.greekmod.block.GenericModBlock;
+import com.flexindahard.greekmod.block.custom.*;
+import com.flexindahard.greekmod.block.geo.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -30,95 +30,102 @@ public class ModBlocks {
     // Статичные блоки высотой 2, которые используют Geo модельки
 
     public static final RegistryObject<Block> ZEUS = registerBlock("zeus",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> AFRODITA = registerBlock("afrodita",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> POSEIDON = registerBlock("poseidon",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
             ));
 
     public static final RegistryObject<Block> GRAY_1 = registerBlock("gray_1",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> GRAY_2 = registerBlock("gray_2",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> GRAY_3 = registerBlock("gray_3",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> ARTEMIDA = registerBlock("artemida",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> AFINA = registerBlock("afina",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> AFINA_NIKA = registerBlock("afina_nika",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     // Переделать Кариатиду - она 3 блока в высоту
     public static final RegistryObject<Block> KARIATIDA = registerBlock("kariatida",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> STELLA = registerBlock("stella",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> APOLLON = registerBlock("apollon",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> GERA = registerBlock("gera",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> KIFARA = registerBlock("kifara",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
+    public static final RegistryObject<Block> DIONYS = registerBlock("dionys",
+            () -> new TwoGeoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(3.0f, 4f)
+            ));
+
 
 
     public static final RegistryObject<Block> PIFOS = registerBlock("pifos",
-            () -> new PifosEntityBlock(BlockBehaviour.Properties.of()
+            () -> new PifosEntityGeoBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
@@ -157,12 +164,6 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));
-    public static final RegistryObject<Block> CLAY_SIGN = registerBlock("clay_sign",
-            () -> new ClaySignBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_BROWN)
-                    .strength(2.0f, 4f)
-            ));
     public static final RegistryObject<Block> SCROLL_STACK = registerBlock("scroll_stack",
             () -> new GenericModBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
@@ -175,6 +176,14 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));
+    public static final RegistryObject<Block> KILIK = registerBlock("kilik",
+            () -> new GenericModBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+
+    // Кастомные блоки
     public static final RegistryObject<Block> TRIPOD = registerBlock("tripod",
             () -> new TripodBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
@@ -190,6 +199,12 @@ public class ModBlocks {
 
     public static final RegistryObject<LittlePotBlock> LITTLE_POT = registerBlock("little_pot",
             () -> new LittlePotBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<Block> CLAY_SIGN = registerBlock("clay_sign",
+            () -> new ClaySignBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)

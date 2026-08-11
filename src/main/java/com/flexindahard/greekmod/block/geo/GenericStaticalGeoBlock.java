@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block.staticalComplexModels;
+package com.flexindahard.greekmod.block.geo;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -17,10 +17,10 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class GenericStaticalBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class GenericStaticalGeoBlock extends HorizontalDirectionalBlock implements EntityBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public GenericStaticalBlock(Properties pProperties) {
+    public GenericStaticalGeoBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH)
@@ -65,4 +65,8 @@ public class GenericStaticalBlock extends HorizontalDirectionalBlock implements 
         return Shapes.block();
     }
 
+    @Override
+    public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return 0.9f;
+    }
 }

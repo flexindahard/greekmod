@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block.staticalComplexModels;
+package com.flexindahard.greekmod.block.geo;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
@@ -8,7 +8,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class PifosEntityBlock extends GenericStaticalBlock{
+public class PifosEntityGeoBlock extends GenericStaticalGeoBlock {
 
     public static final VoxelShape PIFOS_SHAPE = Shapes.or(
             Shapes.or(
@@ -45,7 +45,7 @@ public class PifosEntityBlock extends GenericStaticalBlock{
                     Block.box(16, 14, 8, 21, 24, 21)
             ));
 
-    public PifosEntityBlock(Properties pProperties) {
+    public PifosEntityGeoBlock(Properties pProperties) {
         super(pProperties);
     }
 

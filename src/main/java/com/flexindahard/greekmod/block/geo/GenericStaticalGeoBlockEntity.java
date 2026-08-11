@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block.staticalComplexModels;
+package com.flexindahard.greekmod.block.geo;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;

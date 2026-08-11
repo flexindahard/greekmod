@@ -1,7 +1,7 @@
 package com.flexindahard.greekmod;
 
 
-import com.flexindahard.greekmod.block.staticalComplexModels.StaticalGeoModel;
+import com.flexindahard.greekmod.block.geo.StaticalGeoModel;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import com.flexindahard.greekmod.registries.ModCreativeTab;

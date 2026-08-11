@@ -18,6 +18,7 @@ public class ModCreativeTab {
             CREATIVE_MODE_TABS.register("greekmod_creative_tab", () -> CreativeModeTab.builder().title(Component.translatable("creativetab.greekmod.greekmod_creative_tab"))
                     .withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> VASE.get().asItem().getDefaultInstance())
                     .displayItems((parameters, output) -> {
+        // Статуи
         output.accept(ZEUS.get());
         output.accept(AFRODITA.get());
         output.accept(POSEIDON.get());
@@ -25,29 +26,31 @@ public class ModCreativeTab {
         output.accept(AFINA.get());
         output.accept(AFINA_NIKA.get());
         output.accept(KARIATIDA.get());
-                        output.accept(GRAY_1.get());
-                        output.accept(GRAY_2.get());
-                        output.accept(GRAY_3.get());
-        output.accept(LITTLE_POT.get());
-                        output.accept(VASE.get());
-                        output.accept(AMFORA.get());
-                        output.accept(AMFORA_SHELF.get());
-                        output.accept(PSICTER.get());
-                        output.accept(KANFAR.get());
-        output.accept(POT_TABLE.get());
-        output.accept(RED_CARPET.get());
-        output.accept(BLUE_CARPET.get());
-        output.accept(CLAY_SIGN.get());
-        output.accept(SCROLL_STACK.get());
-        output.accept(SCROLL_SHELF.get());
-        output.accept(STELLA.get());
-        output.accept(PIFOS.get());
+        output.accept(DIONYS.get());
         output.accept(APOLLON.get());
         output.accept(GERA.get());
+        output.accept(GRAY_1.get());
+        output.accept(GRAY_2.get());
+        output.accept(GRAY_3.get());
         output.accept(KIFARA.get());
-        output.accept(AMFORA_SHELF.get());
+        // Горшки
+        output.accept(PIFOS.get());
+        output.accept(VASE.get());
+        output.accept(AMFORA.get());
         output.accept(AMFORA_NO_PATTERN.get());
+        output.accept(LITTLE_POT.get());
+        output.accept(PSICTER.get());
+        output.accept(KANFAR.get());
+        output.accept(KILIK.get());
+        // Предметы
+        output.accept(AMFORA_SHELF.get());
+        output.accept(POT_TABLE.get());
+        output.accept(SCROLL_SHELF.get());
+        output.accept(SCROLL_STACK.get());
+        output.accept(CLAY_SIGN.get());
         output.accept(TRIPOD.get());
+        output.accept(RED_CARPET.get());
+        output.accept(BLUE_CARPET.get());
             }
     ).build());
 

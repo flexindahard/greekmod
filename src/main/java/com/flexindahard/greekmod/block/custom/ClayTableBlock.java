@@ -1,5 +1,6 @@
-package com.flexindahard.greekmod.block;
+package com.flexindahard.greekmod.block.custom;
 
+import com.flexindahard.greekmod.block.GenericModBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;

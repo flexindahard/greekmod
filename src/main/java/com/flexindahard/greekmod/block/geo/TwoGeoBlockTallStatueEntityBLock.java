@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block.staticalComplexModels;
+package com.flexindahard.greekmod.block.geo;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -22,11 +22,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class TwoBlockTallStatueEntityBLock extends GenericStaticalBlock{
+public class TwoGeoBlockTallStatueEntityBLock extends GenericStaticalGeoBlock {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
-    public TwoBlockTallStatueEntityBLock(Properties pProperties) {
+    public TwoGeoBlockTallStatueEntityBLock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH)

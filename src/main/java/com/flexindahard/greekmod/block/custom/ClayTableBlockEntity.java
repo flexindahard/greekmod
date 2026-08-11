@@ -1,13 +1,4 @@
-package com.flexindahard.greekmod.block;
-
-import com.flexindahard.greekmod.registries.ModBlockEntities;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib.animatable.GeoBlockEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.util.GeckoLibUtil;
+package com.flexindahard.greekmod.block.custom;
 
 //public class ClayTableBlockEntity extends BlockEntity implements GeoBlockEntity {
 

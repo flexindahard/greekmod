@@ -1,7 +1,7 @@
 package com.flexindahard.greekmod.registries;
 
 import com.flexindahard.greekmod.Greekmod;
-import com.flexindahard.greekmod.block.staticalComplexModels.GenericStaticalGeoBlockEntity;
+import com.flexindahard.greekmod.block.geo.GenericStaticalGeoBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -31,6 +31,7 @@ public class ModBlockEntities {
                             ModBlocks.APOLLON.get(),
                             ModBlocks.GERA.get(),
                             ModBlocks.KIFARA.get(),
+                            ModBlocks.DIONYS.get(),
                             ModBlocks.STELLA.get()).build(null));
     /*
     Тут была ошибка из-за сигнатуры метода в данном случае в ClayTableBockEntity: Метод Билдера .of
