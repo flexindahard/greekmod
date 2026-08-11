@@ -184,6 +184,7 @@ public class ModBlocks {
             ));
 
     // Кастомные блоки
+
     public static final RegistryObject<Block> TRIPOD = registerBlock("tripod",
             () -> new TripodBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
