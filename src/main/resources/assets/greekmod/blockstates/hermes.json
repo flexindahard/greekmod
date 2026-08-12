@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "half=lower,facing=north": { "model": "greekmod:block/hermes" },
+    "half=lower,facing=east":  { "model": "greekmod:block/hermes" },
+    "half=lower,facing=south": { "model": "greekmod:block/hermes" },
+    "half=lower,facing=west":  { "model": "greekmod:block/hermes" },
+    "half=upper,facing=north": { "model": "greekmod:block/hermes" },
+    "half=upper,facing=east":  { "model": "greekmod:block/hermes" },
+    "half=upper,facing=south": { "model": "greekmod:block/hermes" },
+    "half=upper,facing=west":  { "model": "greekmod:block/hermes" }
+  }
+}

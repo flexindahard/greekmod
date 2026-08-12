@@ -1,0 +1,57 @@
+{
+  "variants": {
+    "facing=north,face=wall": {
+      "model": "greekmod:block/barelief_kentavr",
+      "x": 90
+    },
+    "facing=east,face=wall": {
+      "model": "greekmod:block/barelief_kentavr",
+      "y": 90,
+      "x": 90
+    },
+    "facing=south,face=wall": {
+      "model": "greekmod:block/barelief_kentavr",
+      "y": 180,
+      "x": 90
+    },
+    "facing=west,face=wall": {
+      "model": "greekmod:block/barelief_kentavr",
+      "y": 270,
+      "x": 90
+    },
+    "facing=north,face=floor": {
+      "model": "greekmod:block/barelief_kentavr",
+      "y":180
+    },
+    "facing=east,face=floor": {
+      "model": "greekmod:block/barelief_kentavr",
+      "y": 270
+    },
+    "facing=south,face=floor": {
+      "model": "greekmod:block/barelief_kentavr"
+    },
+    "facing=west,face=floor": {
+      "model": "greekmod:block/barelief_kentavr",
+      "y": 90
+    },
+    "facing=north,face=ceiling": {
+      "model": "greekmod:block/barelief_kentavr",
+      "x": 180,
+      "y":180
+    },
+    "facing=east,face=ceiling": {
+      "model": "greekmod:block/barelief_kentavr",
+      "x": 180,
+      "y": 270
+    },
+    "facing=south,face=ceiling": {
+      "model": "greekmod:block/barelief_kentavr",
+      "x": 180
+    },
+    "facing=west,face=ceiling": {
+      "model": "greekmod:block/barelief_kentavr",
+      "x": 180,
+      "y": 90
+    }
+  }
+}

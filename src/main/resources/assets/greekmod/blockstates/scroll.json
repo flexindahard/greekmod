@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,expanded=true": {
+      "model": "greekmod:block/scroll"
+    },
+    "facing=east,expanded=true": {
+      "model": "greekmod:block/scroll",
+      "y": 90
+    },
+    "facing=south,expanded=true": {
+      "model": "greekmod:block/scroll",
+      "y": 180
+    },
+    "facing=west,expanded=true": {
+      "model": "greekmod:block/scroll",
+      "y": 270
+    },
+    "facing=north,expanded=false": {
+      "model": "greekmod:block/scroll_expanded"
+    },
+    "facing=east,expanded=false": {
+      "model": "greekmod:block/scroll_expanded",
+      "y": 90
+    },
+    "facing=south,expanded=false": {
+      "model": "greekmod:block/scroll_expanded",
+      "y": 180
+    },
+    "facing=west,expanded=false": {
+      "model": "greekmod:block/scroll_expanded",
+      "y": 270
+    }
+  }
+}

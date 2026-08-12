@@ -29,10 +29,15 @@ public class ModCreativeTab {
         output.accept(DIONYS.get());
         output.accept(APOLLON.get());
         output.accept(GERA.get());
+        output.accept(ASKLEPIY.get());
+        output.accept(AID.get());
+        output.accept(DEMETRA.get());
+        output.accept(HERMES.get());
         output.accept(GRAY_1.get());
         output.accept(GRAY_2.get());
         output.accept(GRAY_3.get());
         output.accept(KIFARA.get());
+        output.accept(STELLA.get());
         // Горшки
         output.accept(PIFOS.get());
         output.accept(VASE.get());
@@ -51,6 +56,12 @@ public class ModCreativeTab {
         output.accept(TRIPOD.get());
         output.accept(RED_CARPET.get());
         output.accept(BLUE_CARPET.get());
+        output.accept(BARELIEF_RED.get());
+        output.accept(BARELIEF_YELLOW.get());
+        output.accept(BARELIEF_KENTAVR.get());
+        output.accept(BUTTON_GOLD.get());
+        output.accept(BUTTON_SHIELD.get());
+        output.accept(SCROLL.get());
             }
     ).build());
 

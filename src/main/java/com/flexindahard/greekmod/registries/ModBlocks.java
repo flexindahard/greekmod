@@ -121,6 +121,30 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
             ));
+    public static final RegistryObject<Block> ASKLEPIY = registerBlock("asklepiy",
+            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .strength(3.0f, 4f)
+            ));
+    public static final RegistryObject<Block> AID = registerBlock("aid",
+            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BLACK)
+                    .strength(3.0f, 4f)
+            ));
+    public static final RegistryObject<Block> DEMETRA = registerBlock("demetra",
+            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .strength(3.0f, 4f)
+            ));
+    public static final RegistryObject<Block> HERMES = registerBlock("hermes",
+            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_WHITE)
+                    .strength(3.0f, 4f)
+            ));
 
 
 
@@ -242,6 +266,43 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));
+    public static final RegistryObject<Block> BARELIEF_RED = registerBlock("barelief_red",
+            () -> new VerticalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<Block> BARELIEF_YELLOW = registerBlock("barelief_yellow",
+            () -> new VerticalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<Block> BARELIEF_KENTAVR = registerBlock("barelief_kentavr",
+            () -> new VerticalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<Block> BUTTON_GOLD = registerBlock("button_gold",
+            () -> new VerticalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.GOLD)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<Block> BUTTON_SHIELD = registerBlock("button_shield",
+            () -> new VerticalBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.GOLD)
+                    .strength(2.0f, 4f)
+            ));
+    public static final RegistryObject<Block> SCROLL = registerBlock("scroll",
+            () -> new ScrollBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.WOOL)
+                    .strength(2.0f, 4f)
+            ));
+
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));

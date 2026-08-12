@@ -31,5 +31,15 @@
   "block.greekmod.amfora_no_pattern": "Амфора без рисунка",
   "block.greekmod.tripod": "Трипод",
   "block.greekmod.dionys": "Дионис",
-  "block.greekmod.kilik": "Килик"
+  "block.greekmod.kilik": "Килик",
+  "block.greekmod.asklepiy": "Асклепий",
+  "block.greekmod.aid": "Аид",
+  "block.greekmod.demetra": "Деметра",
+  "block.greekmod.hermes": "Гермес",
+  "block.greekmod.barelief_red": "Барельеф (красный)",
+  "block.greekmod.barelief_yellow": "Барельеф (жёлтый)",
+  "block.greekmod.barelief_kentavr": "Барельеф (кентавр)",
+  "block.greekmod.button_gold": "Кнопка золотая",
+  "block.greekmod.button_shield": "Кнопка щит",
+  "block.greekmod.scroll": "Свиток"
 }

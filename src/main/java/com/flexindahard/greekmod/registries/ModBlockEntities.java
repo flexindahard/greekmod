@@ -32,6 +32,10 @@ public class ModBlockEntities {
                             ModBlocks.GERA.get(),
                             ModBlocks.KIFARA.get(),
                             ModBlocks.DIONYS.get(),
+                            ModBlocks.ASKLEPIY.get(),
+                            ModBlocks.AID.get(),
+                            ModBlocks.DEMETRA.get(),
+                            ModBlocks.HERMES.get(),
                             ModBlocks.STELLA.get()).build(null));
     /*
     Тут была ошибка из-за сигнатуры метода в данном случае в ClayTableBockEntity: Метод Билдера .of
