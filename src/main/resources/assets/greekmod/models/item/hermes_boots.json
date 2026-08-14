@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "greekmod:item/hermes_boots_icon"
+  }
+}

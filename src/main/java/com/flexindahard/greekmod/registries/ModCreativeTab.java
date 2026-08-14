@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static com.flexindahard.greekmod.Greekmod.MODID;
 import static com.flexindahard.greekmod.registries.ModBlocks.*;
+import static com.flexindahard.greekmod.registries.ModItems.*;
 
 public class ModCreativeTab {
 
@@ -33,6 +34,7 @@ public class ModCreativeTab {
         output.accept(AID.get());
         output.accept(DEMETRA.get());
         output.accept(HERMES.get());
+        output.accept(GEFEST.get());
         output.accept(GRAY_1.get());
         output.accept(GRAY_2.get());
         output.accept(GRAY_3.get());
@@ -62,6 +64,8 @@ public class ModCreativeTab {
         output.accept(BUTTON_GOLD.get());
         output.accept(BUTTON_SHIELD.get());
         output.accept(SCROLL.get());
+        // Item
+        output.accept(HERMES_BOOTS.get());
             }
     ).build());
 

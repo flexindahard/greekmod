@@ -6,7 +6,7 @@
     32
   ],
   "textures": {
-    "0": "greekmod:block/red_carpet_plain",
+    "0": "greekmod:block/red_carpet",
     "particle": "minecraft:block/red_wool"
   },
   "elements": [

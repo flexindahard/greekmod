@@ -1,0 +1,43 @@
+{
+  "variants": {
+    "is_corner=false,neighbours=north_west,facing=north": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=north_east,facing=north": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_west,facing=north": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_east,facing=north": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+
+    "is_corner=false,neighbours=north_west,facing=east": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=north_east,facing=east": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_west,facing=east": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_east,facing=east": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+
+    "is_corner=false,neighbours=north_west,facing=south": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=north_east,facing=south": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_west,facing=south": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_east,facing=south": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+
+    "is_corner=false,neighbours=north_west,facing=west": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=north_east,facing=west": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_west,facing=west": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+    "is_corner=false,neighbours=south_east,facing=west": { "model": "greekmod:block/blue_carpet_wall_plain", "y": 90 },
+
+    "is_corner=true,neighbours=north_west,facing=north": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=north_east,facing=north": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_west,facing=north": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_east,facing=north": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+
+    "is_corner=true,neighbours=north_west,facing=east": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=north_east,facing=east": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_west,facing=east": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_east,facing=east": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+
+    "is_corner=true,neighbours=north_west,facing=south": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=north_east,facing=south": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_west,facing=south": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_east,facing=south": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+
+    "is_corner=true,neighbours=north_west,facing=west": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=north_east,facing=west": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_west,facing=west": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 },
+    "is_corner=true,neighbours=south_east,facing=west": { "model": "greekmod:block/blue_carpet_wall_corner", "y": 90 }
+  }
+}

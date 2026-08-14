@@ -1,6 +1,7 @@
 package com.flexindahard.greekmod.block.custom;
 
 import com.flexindahard.greekmod.block.GenericModBlock;
+import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -12,125 +13,144 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
+
 public class CarpetBlock extends GenericModBlock {
 
-   public static final EnumProperty<CarpetEnumProperty> CARPET_STATE = EnumProperty.create("carpet_state", CarpetEnumProperty.class);
-    public static final BooleanProperty WALL_STATE = BooleanProperty.create("wall");
+   public static final EnumProperty<CarpetEnumProperty> NEIGHBOURS = EnumProperty.create("neighbours", CarpetEnumProperty.class);
+   public static final BooleanProperty IS_CORNER = BooleanProperty.create("is_corner");
+
+    // Возможные расположения соседних ковров:     {↑ → ↓ ←}
+    public static final int[] northEast = new int[]{1,1,0,0};
+
+    public static final int[] northWest = new int[]{1,0,0,1};
+    public static final int[] southEast = new int[]{0,1,1,0};
+    public static final int[] southWest = new int[]{0,0,1,1};
+    public static final int[] upDown = new int[]{1,0,1,0};
+    public static final int[] leftRight = new int[]{0,1,0,1};
+    public static final int[] north = new int[]{1,0,0,0};
+    public static final int[] east = new int[]{0,1,0,0};
+    public static final int[] south = new int[]{0,0,1,0};
+    public static final int[] west = new int[]{0,0,0,1};
+
     public CarpetBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(defaultBlockState().setValue(CARPET_STATE, CarpetEnumProperty.PLAIN)
-                .setValue(FACING, Direction.NORTH).setValue(WALL_STATE, false));
-    }
-
-    // Улучшить проверку есть ли соседние ковры
-
-//    public static Boolean UpNeighbour (BlockPos pPos, LevelAccessor level){
-//        if (level.getBlockState(pPos).getBlock() instanceof CarpetBlock)
-//        {
-//            if (level.getBlockState(pPos).getValue(WALL_STATE))
-//            {
-//
-//            }
-//        }
-//        return level.getBlockState(pPos.offset(1,0,0)).getBlock() instanceof CarpetBlock;
-//    }
-
-    public static Boolean northNeighbour(BlockPos pPos, LevelAccessor level){
-        return level.getBlockState(pPos.north()).getBlock() instanceof CarpetBlock;
-    }
-    public static Boolean southNeighbour(BlockPos pPos, LevelAccessor level){
-        return level.getBlockState(pPos.south()).getBlock() instanceof CarpetBlock;
-    }
-    public static Boolean eastNeighbour(BlockPos pPos, LevelAccessor level){
-        return level.getBlockState(pPos.east()).getBlock() instanceof CarpetBlock;
-    }
-    public static Boolean westNeighbour(BlockPos pPos, LevelAccessor level){
-        return level.getBlockState(pPos.west()).getBlock() instanceof CarpetBlock;
-    }
-    public static Boolean upNeighbour(BlockPos pPos, LevelAccessor level){
-        return level.getBlockState(pPos.above()).getBlock() instanceof CarpetBlock;
-    }
-    public static Boolean downNeighbour(BlockPos pPos, LevelAccessor level){
-        return level.getBlockState(pPos.below()).getBlock() instanceof CarpetBlock;
+        this.registerDefaultState(defaultBlockState()
+                .setValue(IS_CORNER, false)
+                .setValue(FACING, Direction.NORTH)
+                .setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_EAST));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        pBuilder.add(CARPET_STATE);
-        pBuilder.add(WALL_STATE);
+        pBuilder.add(IS_CORNER);
+        pBuilder.add(NEIGHBOURS);
+    }
+
+    public static int[] getNeighboursPos(LevelAccessor level, BlockState blockState, BlockPos pos) {
+        int[] neighbour = new int[4];
+        Block block = blockState.getBlock();
+        Direction direction = blockState.getValue(FACING);
+        if (block == ModBlocks.RED_CARPET.get() || block == ModBlocks.BLUE_CARPET.get()) {
+            if (level.getBlockState(pos.north()).getBlock() instanceof CarpetBlock)
+                neighbour[0] = 1; //   N  ↑
+            if (level.getBlockState(pos.east()).getBlock() instanceof CarpetBlock)
+                neighbour[1] = 1;  //   E  →
+            if (level.getBlockState(pos.south()).getBlock() instanceof CarpetBlock)
+                neighbour[2] = 1; //   S  ↓
+            if (level.getBlockState(pos.west()).getBlock() instanceof CarpetBlock)
+                neighbour[3] = 1; //    W  ←
+            return neighbour;
+        }
+        else if (direction == Direction.NORTH || direction == Direction.SOUTH) {
+            if (level.getBlockState(pos.above()).getBlock() instanceof CarpetBlock)
+                neighbour[0] = 1;
+            if (level.getBlockState(pos.east()).getBlock() instanceof CarpetBlock)
+                neighbour[1] = 1;
+            if (level.getBlockState(pos.below()).getBlock() instanceof CarpetBlock)
+                neighbour[2] = 1;
+            if (level.getBlockState(pos.west()).getBlock() instanceof CarpetBlock)
+                neighbour[3] = 1;
+            return neighbour;
+        }
+        else if(direction == Direction.WEST || direction == Direction.EAST) {
+            if (level.getBlockState(pos.above()).getBlock() instanceof CarpetBlock)
+                neighbour[0] = 1;
+            if (level.getBlockState(pos.north()).getBlock() instanceof CarpetBlock)
+                neighbour[1] = 1;
+            if (level.getBlockState(pos.below()).getBlock() instanceof CarpetBlock)
+                neighbour[2] = 1;
+            if (level.getBlockState(pos.south()).getBlock() instanceof CarpetBlock)
+                neighbour[3] = 1;
+            return neighbour;
+        }
+            return null;
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Block.box(0,0,0,16,0.5f,16);
+        // return Block.box(0,0,0,16,1f,16);
+        return Shapes.block();
+    }
+
+    // Настенный ковёр может иметь соседей в горизонтальной плоскости только с двух сторон, в зависимости от его начального FACING.
+    @Override
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        LevelAccessor level = pContext.getLevel();
+        BlockState wallDefinedState;
+        Direction direction = pContext.getClickedFace();
+            if (direction == Direction.UP) { // Кликнули на верхнюю сторону блока
+               wallDefinedState = (BlockState) ModBlocks.RED_CARPET.get().defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+            }
+            else {
+                wallDefinedState =  (BlockState) ModBlocks.RED_CARPET_WALL.get().defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+            }
+        int[] neighbours = getNeighboursPos(level, wallDefinedState, pContext.getClickedPos());
+            // Учитываем все комбинации углов
+            if(Arrays.equals(neighbours, northEast)) return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_EAST).setValue(IS_CORNER, true);
+            if(Arrays.equals(neighbours, northWest)) return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_WEST).setValue(IS_CORNER, true);
+            if(Arrays.equals(neighbours, southEast)) return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.SOUTH_EAST).setValue(IS_CORNER, true);
+            if(Arrays.equals(neighbours, southWest)) return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.SOUTH_WEST).setValue(IS_CORNER, true);
+            if(Arrays.equals(neighbours, upDown)) return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_WEST).setValue(IS_CORNER, false);
+            if(Arrays.equals(neighbours, leftRight)) return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_EAST).setValue(IS_CORNER, false);
+            // Два условия специально для настенных прямых ковров
+            // (Чтобы они по-дефолту ставились горизонтально, а когда начинаешь ставить их ещё выше, продолжая стену, они ставились вертикально)
+            if (wallDefinedState.getBlock() == ModBlocks.RED_CARPET_WALL.get()) {
+                if (Arrays.equals(neighbours, north) || Arrays.equals(neighbours, south))
+                    return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_WEST);
+                if (Arrays.equals(neighbours, east) || Arrays.equals(neighbours, west))
+                    return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_EAST);
+            }
+            // Два условия специально для напольных прямых ковров
+            // (Чтобы крутить их правильно и только через North East South West в blockstates.json)
+            else if (wallDefinedState.getBlock() == ModBlocks.RED_CARPET.get()) {
+                if (Arrays.equals(neighbours, north) || Arrays.equals(neighbours, south))
+                    return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.SOUTH_WEST);
+                if (Arrays.equals(neighbours, east) || Arrays.equals(neighbours, west))
+                    return wallDefinedState.setValue(NEIGHBOURS, CarpetEnumProperty.SOUTH_EAST);
+            }
+            return wallDefinedState;
     }
 
     @Override
-    public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        Direction lookingDirection = pContext.getNearestLookingDirection();
-        BlockState wallDefinedState = defaultBlockState().setValue(WALL_STATE, !(lookingDirection == Direction.DOWN));
-            LevelAccessor level = pContext.getLevel();
-            BlockPos pos = pContext.getClickedPos();
-            boolean hasNorthNeighbour = northNeighbour(pos, level);
-            boolean hasSouthNeighbour = southNeighbour(pos, level);
-            boolean hasEastNeighbour = eastNeighbour(pos, level);
-            boolean hasWestNeighbour = westNeighbour(pos, level);
-            if (hasNorthNeighbour && hasSouthNeighbour && hasWestNeighbour && hasEastNeighbour)
-                //Настроить направление центрального ковра.
-                return wallDefinedState.setValue(CARPET_STATE, CarpetEnumProperty.MIDDLE).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-            else if (hasNorthNeighbour && hasSouthNeighbour) {
-                return wallDefinedState.setValue(FACING, Direction.NORTH);
-            } else if (hasEastNeighbour && hasWestNeighbour) {
-                return wallDefinedState.setValue(FACING, Direction.WEST);
-            } else if (hasNorthNeighbour && hasWestNeighbour) {
-                return wallDefinedState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.EAST);
-            } else if (hasNorthNeighbour && hasEastNeighbour) {
-                return wallDefinedState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.SOUTH);
-            } else if (hasSouthNeighbour && hasEastNeighbour) {
-                return wallDefinedState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.WEST);
-            } else if (hasSouthNeighbour && hasWestNeighbour) {
-                return wallDefinedState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.NORTH);
-            }
-            return wallDefinedState.setValue(CARPET_STATE, CarpetEnumProperty.PLAIN).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-        }
-    @Override
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor level, BlockPos pos, BlockPos pFacingPos) {
-        boolean hasNorthNeighbour = northNeighbour(pos, level);
-        boolean hasSouthNeighbour = southNeighbour(pos, level);
-        boolean hasEastNeighbour = eastNeighbour(pos, level);
-        boolean hasWestNeighbour = westNeighbour(pos, level);
-        boolean hasUpNeighbour = upNeighbour(pos, level);
-        boolean hasDownNeighbour = downNeighbour(pos, level);
-        if (pState.getValue(WALL_STATE)){
-            if ((hasUpNeighbour && hasDownNeighbour && hasWestNeighbour && hasEastNeighbour) || (hasUpNeighbour && hasDownNeighbour && hasNorthNeighbour && hasSouthNeighbour))
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.MIDDLE);
-            if (hasUpNeighbour && hasEastNeighbour || hasUpNeighbour && hasWestNeighbour)
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER);
-            if (hasUpNeighbour && hasDownNeighbour)
-                return level.getBlockState(pos.below());
-        }
-        else {
-            if (hasNorthNeighbour && hasSouthNeighbour && hasWestNeighbour && hasEastNeighbour)
-                //Настроить направление центрального ковра.
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.MIDDLE).setValue(FACING, Direction.NORTH);
-            else if (hasNorthNeighbour && hasSouthNeighbour) {
-                return pState.setValue(FACING, Direction.NORTH);
-            } else if (hasEastNeighbour && hasWestNeighbour) {
-                return pState.setValue(FACING, Direction.WEST);
-            } else if (hasNorthNeighbour && hasWestNeighbour) {
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.EAST);
-            } else if (hasNorthNeighbour && hasEastNeighbour) {
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.SOUTH);
-            } else if (hasSouthNeighbour && hasEastNeighbour) {
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.WEST);
-            } else if (hasSouthNeighbour && hasWestNeighbour) {
-                return pState.setValue(CARPET_STATE, CarpetEnumProperty.CORNER).setValue(FACING, Direction.NORTH);
-            }
-        }
-            return pState;
+        int[] neighbours = getNeighboursPos(level, pState, pos);
+        // Учитываем все комбинации углов
+        if(Arrays.equals(neighbours, northEast)) return pState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_EAST).setValue(IS_CORNER, true);
+        if(Arrays.equals(neighbours, northWest)) return pState.setValue(NEIGHBOURS, CarpetEnumProperty.NORTH_WEST).setValue(IS_CORNER, true);
+        if(Arrays.equals(neighbours, southEast)) return pState.setValue(NEIGHBOURS, CarpetEnumProperty.SOUTH_EAST).setValue(IS_CORNER, true);
+        if(Arrays.equals(neighbours, southWest)) return pState.setValue(NEIGHBOURS, CarpetEnumProperty.SOUTH_WEST).setValue(IS_CORNER, true);
+        // Убираем угловой ковёр если он уже не нужен
+        if(Arrays.equals(neighbours, north) || Arrays.equals(neighbours, south) ||
+                Arrays.equals(neighbours, east) || Arrays.equals(neighbours, west) ||
+                Arrays.equals(neighbours, upDown) || Arrays.equals(neighbours, leftRight))
+            return pState.setValue(IS_CORNER, false);
+        return pState;
     }
 }
+

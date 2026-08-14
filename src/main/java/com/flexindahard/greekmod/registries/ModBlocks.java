@@ -145,6 +145,12 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_WHITE)
                     .strength(3.0f, 4f)
             ));
+    public static final RegistryObject<Block> GEFEST = registerBlock("gefest",
+            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(3.0f, 4f)
+            ));
 
 
 
@@ -254,7 +260,19 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(1.0f, 2f)
             ));
+    public static final RegistryObject<Block> RED_CARPET_WALL = BLOCKS.register("red_carpet_wall",
+            () -> new CarpetBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(1.0f, 2f)
+            ));
     public static final RegistryObject<Block> BLUE_CARPET = registerBlock("blue_carpet",
+            () -> new CarpetBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(1.0f, 2f)
+            ));
+    public static final RegistryObject<Block> BLUE_CARPET_WALL = BLOCKS.register("blue_carpet_wall",
             () -> new CarpetBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
