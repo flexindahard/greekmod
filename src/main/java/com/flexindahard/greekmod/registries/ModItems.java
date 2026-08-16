@@ -18,6 +18,8 @@ public class ModItems {
 
     public static final  RegistryObject<Item> HERMES_BOOTS = ITEMS.register("hermes_boots",
             () -> new HermesBootsItem(ArmorMaterials.GOLD, ArmorItem.Type.BOOTS, new Item.Properties().durability(100)));
+
+
     public static void register(IEventBus iEventBus){
         ITEMS.register(iEventBus);
     }

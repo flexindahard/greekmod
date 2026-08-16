@@ -20,12 +20,10 @@ public class ModBlockEntities {
                             ModBlocks.ZEUS.get(),
                             ModBlocks.AFRODITA.get(),
                             ModBlocks.POSEIDON.get(),
-                            ModBlocks.GRAY_1.get(),
-                            ModBlocks.GRAY_2.get(),
-                            ModBlocks.GRAY_3.get(),
+                            ModBlocks.GRAY_STATUE.get(),
                             ModBlocks.ARTEMIDA.get(),
                             ModBlocks.AFINA.get(),
-                            ModBlocks.AFINA_NIKA.get(),
+                            ModBlocks.NIKA.get(),
                             ModBlocks.KARIATIDA.get(),
                             ModBlocks.PIFOS.get(),
                             ModBlocks.APOLLON.get(),
@@ -38,6 +36,7 @@ public class ModBlockEntities {
                             ModBlocks.HERMES.get(),
                             ModBlocks.GEFEST.get(),
                             ModBlocks.STELLA.get()).build(null));
+
     /*
     Тут была ошибка из-за сигнатуры метода в данном случае в ClayTableBockEntity: Метод Билдера .of
      BlockEntityType.Builder.of(BLockEntityType:new) ждал на вход тип с конструктором только из двух аргументов,

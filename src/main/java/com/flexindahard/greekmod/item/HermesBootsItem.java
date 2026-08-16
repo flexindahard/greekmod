@@ -22,10 +22,8 @@ public class HermesBootsItem extends ArmorItem {
     // hermesJump без проверки !level.isClientSide() + use с проверкой не работает.
     // пока что работает только без проверок вообще
     public static void hermesJump(LevelAccessor level, Player player) {
-            if (!level.isClientSide()) {
                 player.jumpFromGround();
                 LOGGER.info("hermesJump void activated");
-            }
     }
 
     @Override

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "greekmod:item/poseidon"
+    "layer0": "greekmod:item/poseidon_icon"
   }
 }

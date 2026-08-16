@@ -6,8 +6,8 @@
     32
   ],
   "textures": {
-    "0": "greekmod:block/blue_carpet_plain",
-    "particle": "minecraft:block/red_wool"
+    "0": "greekmod:block/blue_carpet",
+    "particle": "minecraft:block/blue_wool"
   },
   "elements": [
     {

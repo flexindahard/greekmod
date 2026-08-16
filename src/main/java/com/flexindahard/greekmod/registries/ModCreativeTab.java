@@ -10,6 +10,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static com.flexindahard.greekmod.Greekmod.MODID;
 import static com.flexindahard.greekmod.registries.ModBlocks.*;
+import static com.flexindahard.greekmod.registries.ModBlocks.BLUE_CARPET;
+import static com.flexindahard.greekmod.registries.ModBlocks.RED_CARPET;
 import static com.flexindahard.greekmod.registries.ModItems.*;
 
 public class ModCreativeTab {
@@ -25,7 +27,7 @@ public class ModCreativeTab {
         output.accept(POSEIDON.get());
         output.accept(ARTEMIDA.get());
         output.accept(AFINA.get());
-        output.accept(AFINA_NIKA.get());
+        output.accept(NIKA.get());
         output.accept(KARIATIDA.get());
         output.accept(DIONYS.get());
         output.accept(APOLLON.get());
@@ -35,9 +37,7 @@ public class ModCreativeTab {
         output.accept(DEMETRA.get());
         output.accept(HERMES.get());
         output.accept(GEFEST.get());
-        output.accept(GRAY_1.get());
-        output.accept(GRAY_2.get());
-        output.accept(GRAY_3.get());
+        output.accept(GRAY_STATUE.get());
         output.accept(KIFARA.get());
         output.accept(STELLA.get());
         // Горшки
@@ -65,7 +65,7 @@ public class ModCreativeTab {
         output.accept(BUTTON_SHIELD.get());
         output.accept(SCROLL.get());
         // Item
-        output.accept(HERMES_BOOTS.get());
+        //output.accept(HERMES_BOOTS.get());
             }
     ).build());
 

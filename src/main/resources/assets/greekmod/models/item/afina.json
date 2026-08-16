@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "greekmod:item/afina"
+    "layer0": "greekmod:item/afina_icon"
   }
 }

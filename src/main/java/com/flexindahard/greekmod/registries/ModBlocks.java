@@ -48,19 +48,7 @@ public class ModBlocks {
                     .strength(3.0f, 4f)
             ));
 
-    public static final RegistryObject<Block> GRAY_1 = registerBlock("gray_1",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_GRAY)
-                    .strength(3.0f, 4f)
-            ));
-    public static final RegistryObject<Block> GRAY_2 = registerBlock("gray_2",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_GRAY)
-                    .strength(3.0f, 4f)
-            ));
-    public static final RegistryObject<Block> GRAY_3 = registerBlock("gray_3",
+    public static final RegistryObject<Block> GRAY_STATUE = registerBlock("gray_statue",
             () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
@@ -78,7 +66,7 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
             ));
-    public static final RegistryObject<Block> AFINA_NIKA = registerBlock("afina_nika",
+    public static final RegistryObject<Block> NIKA = registerBlock("nika",
             () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
@@ -240,44 +228,6 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));
-
-    // Регистрируем только блок для блоков, у которых не должно быть BlockItem предмета: BLOCKS.register(...)
-//    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> LITTLE_POT_1 = BLOCKS.register("little_pot_1",
-//            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
-//                    .noOcclusion()
-//                    .mapColor(MapColor.TERRACOTTA_BROWN)
-//                    .strength(2.0f, 4f)
-//            ));
-//    public static final RegistryObject<HorizontalDirectionalRegularModBlocks> LITTLE_POT_2 = BLOCKS.register("little_pot_2",
-//            () -> new HorizontalDirectionalRegularModBlocks(BlockBehaviour.Properties.of()
-//                    .noOcclusion()
-//                    .mapColor(MapColor.TERRACOTTA_BROWN)
-//                    .strength(2.0f, 4f)
-//            ));
-    public static final RegistryObject<Block> RED_CARPET = registerBlock("red_carpet",
-            () -> new CarpetBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_BROWN)
-                    .strength(1.0f, 2f)
-            ));
-    public static final RegistryObject<Block> RED_CARPET_WALL = BLOCKS.register("red_carpet_wall",
-            () -> new CarpetBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_BROWN)
-                    .strength(1.0f, 2f)
-            ));
-    public static final RegistryObject<Block> BLUE_CARPET = registerBlock("blue_carpet",
-            () -> new CarpetBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_BROWN)
-                    .strength(1.0f, 2f)
-            ));
-    public static final RegistryObject<Block> BLUE_CARPET_WALL = BLOCKS.register("blue_carpet_wall",
-            () -> new CarpetBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_BROWN)
-                    .strength(1.0f, 2f)
-            ));
     public static final RegistryObject<Block> SCROLL_SHELF = registerBlock("scroll_shelf",
             () -> new GenericModBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
@@ -321,6 +271,45 @@ public class ModBlocks {
                     .strength(2.0f, 4f)
             ));
 
+    // Ковры
+
+    public static final  CarpetVariantProfile RED = new CarpetVariantProfile(
+            () -> ModBlocks.RED_CARPET.get(),
+            () -> ModBlocks.RED_CARPET_WALL.get(),
+            CarpetEnumProperty.NORTH_WEST,
+            CarpetEnumProperty.NORTH_EAST
+    );
+    public static final  CarpetVariantProfile BLUE = new CarpetVariantProfile(
+            () -> ModBlocks.BLUE_CARPET.get(),
+            () -> ModBlocks.BLUE_CARPET_WALL.get(),
+            CarpetEnumProperty.SOUTH_WEST,
+            CarpetEnumProperty.SOUTH_EAST
+    );
+
+    public static final RegistryObject<Block> RED_CARPET = registerBlock("red_carpet",
+            () -> new CarpetBlockReworkClass(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(0.0f, 1f), RED, false
+            ));
+    public static final RegistryObject<Block> RED_CARPET_WALL = BLOCKS.register("red_carpet_wall",
+            () -> new CarpetBlockReworkClass(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(0.0f, 1f), RED, true
+            ));
+    public static final RegistryObject<Block> BLUE_CARPET = registerBlock("blue_carpet",
+            () -> new CarpetBlockReworkClass(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(0.0f, 1f), BLUE, false
+            ));
+    public static final RegistryObject<Block> BLUE_CARPET_WALL = BLOCKS.register("blue_carpet_wall",
+            () -> new CarpetBlockReworkClass(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
+                    .strength(0.0f, 1f), BLUE, true
+            ));
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));

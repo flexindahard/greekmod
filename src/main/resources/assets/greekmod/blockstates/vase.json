@@ -1,19 +1,20 @@
 {
   "variants": {
     "facing=north": {
-      "model": "greekmod:block/vase"
+      "model": "greekmod:block/vase",
+      "y": 270
     },
     "facing=east": {
       "model": "greekmod:block/vase",
-      "y": 90
+      "y": 0
     },
     "facing=south": {
       "model": "greekmod:block/vase",
-      "y": 180
+      "y": 90
     },
     "facing=west": {
       "model": "greekmod:block/vase",
-      "y": 270
+      "y": 180
     }
   }
 }
