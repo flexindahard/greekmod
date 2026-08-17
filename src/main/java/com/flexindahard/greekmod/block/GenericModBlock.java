@@ -31,6 +31,11 @@ public class GenericModBlock extends HorizontalDirectionalBlock {
     }
 
     @Override
+    public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        return super.propagatesSkylightDown(pState, pLevel, pPos);
+    }
+
+    @Override
     public float getShadeBrightness(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         return 0.9f;
     }

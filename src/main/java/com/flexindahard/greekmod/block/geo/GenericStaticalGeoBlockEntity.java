@@ -2,6 +2,7 @@ package com.flexindahard.greekmod.block.geo;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -50,4 +51,7 @@ public class GenericStaticalGeoBlockEntity extends BlockEntity implements GeoBlo
         return new AABB(pos.getX(), pos.getY(), pos.getZ(),
                 pos.getX() + 1, pos.getY() + 2, pos.getZ() + 1);
     }
+
+
+
 }

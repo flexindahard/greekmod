@@ -1,10 +1,12 @@
 package com.flexindahard.greekmod.block.geo;
 
 import com.flexindahard.greekmod.Greekmod;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public class StaticalGeoModel extends GeoModel {
 

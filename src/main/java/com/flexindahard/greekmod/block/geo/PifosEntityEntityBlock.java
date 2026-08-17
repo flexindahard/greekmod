@@ -4,11 +4,22 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.stream.Stream;
+
 public class PifosEntityEntityBlock extends GenericStaticalEntityBlock {
+
+    public static final VoxelShape PIFOS_COLISION_SHAPE = Stream.of(
+            Block.box(-5, 0, -5, 21, 14, 21),
+            Block.box(-5, 14, -5, 2, 31, 21),
+            Block.box(14, 14, -5, 21, 31, 21),
+            Block.box(2, 14, 14, 14, 31, 21),
+            Block.box(2, 14, -5, 14, 31, 2)
+    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
 
     public static final VoxelShape PIFOS_SHAPE = Shapes.or(
             Shapes.or(
@@ -51,6 +62,11 @@ public class PifosEntityEntityBlock extends GenericStaticalEntityBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return PIFOS_SHAPE;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return PIFOS_SHAPE;
     }
 }
