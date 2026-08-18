@@ -40,5 +40,6 @@
   "block.greekmod.barelief_kentavr": "Барельеф (кентавр)",
   "block.greekmod.button_gold": "Кнопка золотая",
   "block.greekmod.button_shield": "Кнопка щит",
-  "block.greekmod.scroll": "Свиток"
+  "block.greekmod.scroll": "Свиток",
+  "block.greekmod.lira": "Лира"
 }

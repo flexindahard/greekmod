@@ -1,18 +1,18 @@
 {
   "variants": {
-    "facing=north,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty" },
-    "facing=east,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 90 },
-    "facing=south,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 180 },
-    "facing=west,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 270 },
+    "facing=north,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 90 },
+    "facing=east,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 180 },
+    "facing=south,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 270 },
+    "facing=west,amfora_quantity=0": { "model": "greekmod:block/amfora_shelf_empty", "y": 0 },
 
-    "facing=north,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1" },
-    "facing=east,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 90 },
-    "facing=south,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 180 },
-    "facing=west,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 270 },
+    "facing=north,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 90 },
+    "facing=east,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 180 },
+    "facing=south,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 270 },
+    "facing=west,amfora_quantity=1": { "model": "greekmod:block/amfora_shelf_1", "y": 0 },
 
-    "facing=north,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2" },
-    "facing=east,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 90 },
-    "facing=south,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 180 },
-    "facing=west,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 270 }
+    "facing=north,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 90 },
+    "facing=east,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 180 },
+    "facing=south,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 270 },
+    "facing=west,amfora_quantity=2": { "model": "greekmod:block/amfora_shelf_2", "y": 0 }
   }
 }

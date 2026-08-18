@@ -1,6 +1,7 @@
 package com.flexindahard.greekmod.block.geo;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
+import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,14 +19,24 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.stream.Stream;
 
 public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
-
+    public static final VoxelShape WOMAN_SHAPE_NORTH = Block.box(3, 0, 4, 13, 16, 12);
+    public static final VoxelShape WOMAN_SHAPE_EAST = Block.box(4, 0, 3, 12, 16, 13);
+    public static final VoxelShape MAN_SHAPE_NORTH = Block.box(2.5, 0, 2.5, 13.5, 16, 10);
+    public static final VoxelShape MAN_SHAPE_EAST = Block.box(6, 0, 2.5, 13.5, 16, 13.5);
+    public static final VoxelShape MAN_SHAPE_SOUTH = Block.box(2.5, 0, 6, 13.5, 16, 13.5);
+    public static final VoxelShape MAN_SHAPE_WEST = Block.box(2.5, 0, 2.5, 10, 16, 13.5);
     public TwoBlockTallStatueEntityBLock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
@@ -55,7 +66,25 @@ public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
     // Сделать кастомные шейпы для статуй
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return super.getShape(pState, pLevel, pPos, pContext);
+        if (pState.getBlock() == ModBlocks.GRAY_STATUE.get()
+                || pState.getBlock() == ModBlocks.ASKLEPIY.get() || pState.getBlock() == ModBlocks.POSEIDON.get()
+                || pState.getBlock() == ModBlocks.DIONYS.get() || pState.getBlock() == ModBlocks.ZEUS.get())
+        {
+            switch (pState.getValue(FACING))
+            {
+                case NORTH -> { return MAN_SHAPE_NORTH; }
+                case EAST -> { return MAN_SHAPE_EAST; }
+                case SOUTH -> { return MAN_SHAPE_SOUTH; }
+                case WEST -> { return  MAN_SHAPE_WEST; }
+            }
+        }
+        else
+            switch (pState.getValue(FACING))
+            {
+                case NORTH, SOUTH -> { return WOMAN_SHAPE_NORTH; }
+                case EAST, WEST -> { return WOMAN_SHAPE_EAST; }
+            }
+        return Shapes.block();
     }
 
     @Override

@@ -44,14 +44,12 @@ public class GenericStaticalGeoBlockEntity extends BlockEntity implements GeoBlo
         return cache;
     }
 
-    // Увеличть баундинг бокс, отвечающий за зону, в которой модель рендерится.
+    // Увеличивает бокс, отвечающий за зону, в которой модель рендерится.
     @Override
     public AABB getRenderBoundingBox() {
         BlockPos pos = getBlockPos();
         return new AABB(pos.getX(), pos.getY(), pos.getZ(),
                 pos.getX() + 1, pos.getY() + 2, pos.getZ() + 1);
     }
-
-
 
 }

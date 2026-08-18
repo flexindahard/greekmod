@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.LingeringPotionItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -45,15 +46,16 @@ public class ModCreativeTab {
         output.accept(VASE.get());
         output.accept(AMFORA.get());
         output.accept(AMFORA_NO_PATTERN.get());
-        output.accept(LITTLE_POT.get());
-        output.accept(PSICTER.get());
         output.accept(KANFAR.get());
+        output.accept(PSICTER.get());
         output.accept(KILIK.get());
+        output.accept(LITTLE_POT.get());
         // Предметы
         output.accept(AMFORA_SHELF.get());
         output.accept(POT_TABLE.get());
         output.accept(SCROLL_SHELF.get());
         output.accept(SCROLL_STACK.get());
+        output.accept(SCROLL.get());
         output.accept(CLAY_SIGN.get());
         output.accept(TRIPOD.get());
         output.accept(RED_CARPET.get());
@@ -63,9 +65,9 @@ public class ModCreativeTab {
         output.accept(BARELIEF_KENTAVR.get());
         output.accept(BUTTON_GOLD.get());
         output.accept(BUTTON_SHIELD.get());
-        output.accept(SCROLL.get());
+        output.accept(LIRA.get());
         // Item
-        //output.accept(HERMES_BOOTS.get());
+        output.accept(HERMES_BOOTS.get());
             }
     ).build());
 
