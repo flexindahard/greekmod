@@ -2,6 +2,7 @@ package com.flexindahard.greekmod.registries;
 
 import com.flexindahard.greekmod.Greekmod;
 import com.flexindahard.greekmod.block.geo.GenericStaticalGeoBlockEntity;
+import com.flexindahard.greekmod.block.geo.statues.GrayStatueBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -20,7 +21,6 @@ public class ModBlockEntities {
                             ModBlocks.ZEUS.get(),
                             ModBlocks.AFRODITA.get(),
                             ModBlocks.POSEIDON.get(),
-                            ModBlocks.GRAY_STATUE.get(),
                             ModBlocks.ARTEMIDA.get(),
                             ModBlocks.AFINA.get(),
                             ModBlocks.NIKA.get(),
@@ -45,9 +45,10 @@ public class ModBlockEntities {
     public ClayTableBlockEntity(~~Здесь_был_третий_Аргумент~~, BlockPos pPos, BlockState pBlockState)
     {super(ModBlockEntities.CLAY_TABLE_BLOCK_ENTITY.get(), pPos, pBlockState);}
     */
-//    public static final RegistryObject<BlockEntityType<ClayTableBlockEntity>> CLAY_TABLE_BLOCK_ENTITY = BLOCK_ENTITIES
-//            .register("clay_table_block_entity", () -> BlockEntityType.Builder.of(ClayTableBlockEntity::new,
-//                    ModBlocks.POT_TABLE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<GrayStatueBlockEntity>> GRAY_STATUE_BLOCK_ENTITY = BLOCK_ENTITIES
+            .register("gray_statue_block_entity", () -> BlockEntityType.Builder.of(GrayStatueBlockEntity::new,
+                    ModBlocks.GRAY_STATUE.get()).build(null));
 
     public static void register(IEventBus iEventBus){
         BLOCK_ENTITIES.register(iEventBus);

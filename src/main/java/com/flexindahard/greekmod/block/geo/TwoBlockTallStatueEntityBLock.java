@@ -4,29 +4,28 @@ import com.flexindahard.greekmod.registries.ModBlockEntities;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.stream.Stream;
 
 public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
 
@@ -120,5 +119,10 @@ public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
             }
         }
         super.playerWillDestroy(level, pos, state, player);
+    }
+
+    @Override
+    public SoundType getSoundType(BlockState state, LevelReader level, BlockPos pos, @Nullable Entity entity) {
+        return SoundType.METAL;
     }
 }

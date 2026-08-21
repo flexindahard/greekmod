@@ -1,20 +1,27 @@
 package com.flexindahard.greekmod.block.custom;
 
-import com.flexindahard.greekmod.block.GenericModBlock;
+import com.flexindahard.greekmod.block.SimplePotBlock;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ClaySignBlock extends GenericModBlock {
+public class ClaySignBlock extends SimplePotBlock {
+
+    public static final IntegerProperty SIGN;
+    public static final VoxelShape CLAY_SIGN = Block.box(2, 0, 2, 14, 6, 14);
+
     public ClaySignBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(defaultBlockState().setValue(SIGN, 1).setValue(FACING, Direction.NORTH));
@@ -26,7 +33,10 @@ public class ClaySignBlock extends GenericModBlock {
         pBuilder.add(SIGN);
     }
 
-    public static final IntegerProperty SIGN;
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return CLAY_SIGN;
+    }
 
     static {
         SIGN = IntegerProperty.create("sign", 1,2);

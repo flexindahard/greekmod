@@ -3,12 +3,17 @@ package com.flexindahard.greekmod.block.custom;
 import com.flexindahard.greekmod.block.GenericModBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -36,9 +41,9 @@ public class VerticalBlock extends GenericModBlock {
         for (Direction direction : pContext.getNearestLookingDirections()) {
             BlockState state;
             if (direction.getAxis() == Direction.Axis.Y) {
-                state = (BlockState) ((BlockState) this.defaultBlockState().setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR)).setValue(FACING, pContext.getHorizontalDirection());
+                state = this.defaultBlockState().setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(FACING, pContext.getHorizontalDirection());
             } else {
-                state = (BlockState) ((BlockState) this.defaultBlockState().setValue(FACE, AttachFace.WALL)).setValue(FACING, direction.getOpposite());
+                state = this.defaultBlockState().setValue(FACE, AttachFace.WALL).setValue(FACING, direction.getOpposite());
             }
 
             if (state.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
@@ -61,7 +66,7 @@ public class VerticalBlock extends GenericModBlock {
                 return Direction.UP;
             }
             default -> {
-                return (Direction) pState.getValue(FACING);
+                return pState.getValue(FACING);
             }
         }
     }
@@ -78,6 +83,20 @@ public class VerticalBlock extends GenericModBlock {
         };
     }
 
+    @Override
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pMovedByPiston) {
+        pLevel.playSound(null, pPos, SoundEvents.METAL_PLACE, SoundSource.BLOCKS, 1f, 1f);
+    }
+
+    @Override
+    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
+        pLevel.playSound(null, pPos, SoundEvents.METAL_BREAK, SoundSource.BLOCKS, 1f, 1f);
+    }
+
+    @Override
+    public SoundType getSoundType(BlockState state, LevelReader level, BlockPos pos, @org.jetbrains.annotations.Nullable Entity entity) {
+        return SoundType.EMPTY;
+    }
 }
 
 

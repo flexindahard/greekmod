@@ -4,10 +4,13 @@ import com.flexindahard.greekmod.block.GenericModBlock;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -183,6 +186,11 @@ public class CarpetBlock extends GenericModBlock {
             if (state.getValue(IS_CORNER))
                 return state;
         return applyOrientation(state, neighbours);
+    }
+
+    @Override
+    public SoundType getSoundType(BlockState state, LevelReader level, BlockPos pos, @Nullable Entity entity) {
+        return SoundType.WOOL;
     }
 }
 

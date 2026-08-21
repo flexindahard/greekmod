@@ -8,6 +8,7 @@ import com.flexindahard.greekmod.block.geo.statues.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -51,13 +52,6 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
                     .lightLevel(value -> 8)
-            ));
-
-    public static final RegistryObject<Block> GRAY_STATUE = registerBlock("gray_statue",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_GRAY)
-                    .strength(3.0f, 4f)
             ));
     public static final RegistryObject<Block> ARTEMIDA = registerBlock("artemida",
             () -> new ArtemidaStatue(BlockBehaviour.Properties.of()
@@ -109,7 +103,7 @@ public class ModBlocks {
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> KIFARA = registerBlock("kifara",
-            () -> new TwoBlockTallStatueEntityBLock(BlockBehaviour.Properties.of()
+            () -> new KifaraBlock(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
@@ -169,6 +163,12 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));
+    public static final RegistryObject<Block> GRAY_STATUE = registerBlock("gray_statue",
+            () -> new GrayStatue(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_GRAY)
+                    .strength(3.0f, 4f)
+            ));
 
     // Обычные блоки с ванильным рендером.
 
@@ -204,6 +204,7 @@ public class ModBlocks {
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
+                    .sound(SoundType.CANDLE)
             ));
     public static final RegistryObject<Block> AMFORA_NO_PATTERN = registerBlock("amfora_no_pattern",
             () -> new SimplePotBlock(BlockBehaviour.Properties.of()
@@ -232,6 +233,7 @@ public class ModBlocks {
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
+                    .sound(SoundType.CHISELED_BOOKSHELF)
             ));
 
     public static final RegistryObject<LittlePotBlock> LITTLE_POT = registerBlock("little_pot",
@@ -250,7 +252,6 @@ public class ModBlocks {
             ));
     public static final RegistryObject<Block> SCROLL_SHELF = registerBlock("scroll_shelf",
             () -> new GenericModBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
             ));

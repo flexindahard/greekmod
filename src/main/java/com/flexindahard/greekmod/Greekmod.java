@@ -1,14 +1,12 @@
 package com.flexindahard.greekmod;
 
 
-import com.flexindahard.greekmod.block.geo.GenericStaticalGeoBlockEntity;
 import com.flexindahard.greekmod.block.geo.GeoBlockEntityRenderer;
-import com.flexindahard.greekmod.block.geo.StaticalGeoModel;
+import com.flexindahard.greekmod.block.geo.statues.GrayStatueRenderer;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import com.flexindahard.greekmod.registries.ModCreativeTab;
 import com.flexindahard.greekmod.registries.ModItems;
-import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,9 +19,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
-import software.bernie.geckolib.renderer.GeoBlockRenderer;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Greekmod.MODID)
@@ -68,6 +64,9 @@ public class Greekmod {
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.GENERIC_STATICAL_BLOCK_ENTITY.get(),
                     GeoBlockEntityRenderer::new);
+
+            event.registerBlockEntityRenderer(ModBlockEntities.GRAY_STATUE_BLOCK_ENTITY.get(),
+                    GrayStatueRenderer::new);
         }
     }
 

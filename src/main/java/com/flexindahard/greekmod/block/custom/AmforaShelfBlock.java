@@ -3,16 +3,22 @@ package com.flexindahard.greekmod.block.custom;
 import com.flexindahard.greekmod.block.GenericModBlock;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.Nullable;
 
 public class AmforaShelfBlock extends GenericModBlock {
 
@@ -53,8 +59,17 @@ public class AmforaShelfBlock extends GenericModBlock {
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         if(!pPlayer.isCreative())
-            for (int i = 0; i < pState.getValue(AMFORA_QUANTITY); i++) {
-            popResource(pLevel, pPos, ModBlocks.AMFORA_NO_PATTERN.get().asItem().getDefaultInstance());
+        {
+            pLevel.playSound(null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1f ,1f);
+            for (int i = 0; i < pState.getValue(AMFORA_QUANTITY); i++)
+            {
+                popResource(pLevel, pPos, ModBlocks.AMFORA_NO_PATTERN.get().asItem().getDefaultInstance());
+            }
         }
+    }
+
+    @Override
+    public SoundType getSoundType(BlockState state, LevelReader level, BlockPos pos, @Nullable Entity entity) {
+        return SoundType.CHISELED_BOOKSHELF;
     }
 }
