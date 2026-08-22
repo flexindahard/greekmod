@@ -1,6 +1,5 @@
-package com.flexindahard.greekmod.block.custom;
+package com.flexindahard.greekmod.block;
 
-import com.flexindahard.greekmod.block.GenericModBlock;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -46,10 +45,12 @@ public class AmforaShelfBlock extends GenericModBlock {
         if (!pLevel.isClientSide){
             if(pPlayer.getMainHandItem().is(amforaItem) && amfora_quantity < 2){
                 pLevel.setBlock(pPos, pState.cycle(AMFORA_QUANTITY), 3);
+                pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_PLACE, SoundSource.BLOCKS);
                 return InteractionResult.SUCCESS;
             }
             else if (!(pPlayer.getMainHandItem().is(amforaItem)) && pState.getValue(AMFORA_QUANTITY) > 0) {
                 pLevel.setBlock(pPos, pState.setValue(AMFORA_QUANTITY, pState.getValue(AMFORA_QUANTITY) - 1), 3);
+                pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_STEP, SoundSource.BLOCKS);
                 return InteractionResult.SUCCESS;
             }
         }
@@ -58,6 +59,7 @@ public class AmforaShelfBlock extends GenericModBlock {
 
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+        super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
         if(!pPlayer.isCreative())
         {
             pLevel.playSound(null, pPos, SoundEvents.WOOD_BREAK, SoundSource.BLOCKS, 1f ,1f);

@@ -1,5 +1,6 @@
 package com.flexindahard.greekmod.block.geo;
 
+import com.flexindahard.greekmod.block.geo.statues.GenericStatueBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -12,7 +13,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class KifaraBlock extends TwoBlockTallStatueEntityBLock{
+public class KifaraBlock extends GenericStatueBlock {
 
     public static final VoxelShape KIFARA_NORTH = Block.box(0, 0, 5, 16, 16, 11);
     public static final VoxelShape KIFARA_EAST = Block.box(5, 0, 0, 11, 16, 16);

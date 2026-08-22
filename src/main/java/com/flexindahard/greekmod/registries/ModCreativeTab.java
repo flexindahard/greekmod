@@ -4,7 +4,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.LingeringPotionItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -66,6 +65,7 @@ public class ModCreativeTab {
         output.accept(BUTTON_GOLD.get());
         output.accept(BUTTON_SHIELD.get());
         output.accept(LIRA.get());
+        output.accept(ALTAR.get());
         // Item
         output.accept(HERMES_BOOTS.get());
             }

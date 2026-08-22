@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "greekmod:block/altar",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "greekmod:block/altar",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "greekmod:block/altar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "greekmod:block/altar",
+      "y": 270
+    }
+  }
+}

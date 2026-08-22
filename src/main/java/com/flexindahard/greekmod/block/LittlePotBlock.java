@@ -1,6 +1,5 @@
-package com.flexindahard.greekmod.block.custom;
+package com.flexindahard.greekmod.block;
 
-import com.flexindahard.greekmod.block.SimplePotBlock;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -48,11 +47,12 @@ public class LittlePotBlock extends SimplePotBlock {
 
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        if (!pPlayer.isCreative())
-        {
-            pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_BREAK, SoundSource.BLOCKS, 1f ,1f);
-            popResourceFromFace(pLevel, pPos, pState.getValue(FACING), new ItemStack(ModBlocks.LITTLE_POT.get(), pState.getValue(POTS)));
-        }
+        pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_BREAK, SoundSource.BLOCKS, 1f ,1f);
+            if (!pPlayer.isCreative())
+            {
+                popResourceFromFace(pLevel, pPos, pState.getValue(FACING), new ItemStack(ModBlocks.LITTLE_POT.get(), pState.getValue(POTS)));
+            }
+
     }
 
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
@@ -73,11 +73,11 @@ public class LittlePotBlock extends SimplePotBlock {
             if (!pPlayer.getMainHandItem().is((ModBlocks.LITTLE_POT.get().asItem())) && pots >1)
             {
                 pLevel.setBlock(pPos, pState.setValue(POTS, pots - 1), 3);
-                pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_SHATTER, SoundSource.BLOCKS, 1f ,1f);
+                pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_STEP, SoundSource.BLOCKS, 1f ,1f);
                 return InteractionResult.SUCCESS;
             }
         }
-        return InteractionResult.sidedSuccess(pLevel.isClientSide);
+        return InteractionResult.CONSUME;
         }
 
 }

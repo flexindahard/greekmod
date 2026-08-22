@@ -1,10 +1,11 @@
-package com.flexindahard.greekmod.block.geo;
+package com.flexindahard.greekmod.client.renderer;
 
+import com.flexindahard.greekmod.blockentity.SimpleStatueBlockEntity;
+import com.flexindahard.greekmod.block.geo.StaticalGeoModel;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;
-import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
-public class GeoBlockEntityRenderer extends GeoBlockRenderer<GenericStaticalGeoBlockEntity> {
+public class GeoBlockEntityRenderer extends GeoBlockRenderer<SimpleStatueBlockEntity> {
 
     // Рендерер, который принимает все модели из класса StaticalGeoModel
     public GeoBlockEntityRenderer(BlockEntityRendererProvider.Context context) {

@@ -1,6 +1,5 @@
-package com.flexindahard.greekmod.block.custom;
+package com.flexindahard.greekmod.block;
 
-import com.flexindahard.greekmod.block.GenericModBlock;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

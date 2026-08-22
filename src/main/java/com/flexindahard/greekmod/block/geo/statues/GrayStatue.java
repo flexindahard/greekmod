@@ -1,6 +1,6 @@
 package com.flexindahard.greekmod.block.geo.statues;
 
-import com.flexindahard.greekmod.block.geo.TwoBlockTallStatueEntityBLock;
+import com.flexindahard.greekmod.blockentity.GrayStatueBlockEntity;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class GrayStatue extends TwoBlockTallStatueEntityBLock {
+public class GrayStatue extends GenericStatueBlock {
 
     public GrayStatue(Properties pProperties) {
         super(pProperties);

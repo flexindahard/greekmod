@@ -1,8 +1,9 @@
 package com.flexindahard.greekmod.registries;
 
 import com.flexindahard.greekmod.Greekmod;
-import com.flexindahard.greekmod.block.geo.GenericStaticalGeoBlockEntity;
-import com.flexindahard.greekmod.block.geo.statues.GrayStatueBlockEntity;
+import com.flexindahard.greekmod.blockentity.AltarBlockEntity;
+import com.flexindahard.greekmod.blockentity.SimpleStatueBlockEntity;
+import com.flexindahard.greekmod.blockentity.GrayStatueBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,9 +16,9 @@ public class ModBlockEntities {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Greekmod.MODID);
 
     // В BlockEntityType.Builder.of(...) можно передавать несколько блоков, для всех из них будет подгружаться одна и та же Geo моделька.
-    public static final RegistryObject<BlockEntityType<GenericStaticalGeoBlockEntity>> GENERIC_STATICAL_BLOCK_ENTITY =
+    public static final RegistryObject<BlockEntityType<SimpleStatueBlockEntity>> GENERIC_STATICAL_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("generic_statical_block_entity",
-                    () -> BlockEntityType.Builder.of(GenericStaticalGeoBlockEntity::new,
+                    () -> BlockEntityType.Builder.of(SimpleStatueBlockEntity::new,
                             ModBlocks.ZEUS.get(),
                             ModBlocks.AFRODITA.get(),
                             ModBlocks.POSEIDON.get(),
@@ -49,6 +50,9 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<GrayStatueBlockEntity>> GRAY_STATUE_BLOCK_ENTITY = BLOCK_ENTITIES
             .register("gray_statue_block_entity", () -> BlockEntityType.Builder.of(GrayStatueBlockEntity::new,
                     ModBlocks.GRAY_STATUE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<AltarBlockEntity>> ALTAR_BLOCK_ENTITY = BLOCK_ENTITIES
+            .register("altar_block_entity", () -> BlockEntityType.Builder.of(AltarBlockEntity::new,
+                    ModBlocks.ALTAR.get()).build(null));
 
     public static void register(IEventBus iEventBus){
         BLOCK_ENTITIES.register(iEventBus);

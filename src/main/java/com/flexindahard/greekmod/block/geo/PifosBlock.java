@@ -11,7 +11,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.Stream;
 
-public class PifosEntityEntityBlock extends GenericStaticalEntityBlock {
+public class PifosBlock extends GenericStaticalEntityBlock {
 
     public static final VoxelShape PIFOS_COLISION_SHAPE = Stream.of(
             Block.box(-5, 0, -5, 21, 14, 21),
@@ -56,7 +56,7 @@ public class PifosEntityEntityBlock extends GenericStaticalEntityBlock {
                     Block.box(16, 14, 8, 21, 24, 21)
             ));
 
-    public PifosEntityEntityBlock(Properties pProperties) {
+    public PifosBlock(Properties pProperties) {
         super(pProperties);
     }
 

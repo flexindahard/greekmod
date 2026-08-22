@@ -1,6 +1,5 @@
-package com.flexindahard.greekmod.block.custom;
+package com.flexindahard.greekmod.block;
 
-import com.flexindahard.greekmod.block.GenericModBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -58,7 +57,7 @@ public class VerticalBlock extends GenericModBlock {
     }
 
     protected static Direction getConnectedDirection(BlockState pState) {
-        switch ((AttachFace) pState.getValue(FACE)) {
+        switch (pState.getValue(FACE)) {
             case CEILING -> {
                 return Direction.DOWN;
             }

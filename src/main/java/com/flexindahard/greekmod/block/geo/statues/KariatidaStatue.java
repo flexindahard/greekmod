@@ -1,6 +1,5 @@
 package com.flexindahard.greekmod.block.geo.statues;
 
-import com.flexindahard.greekmod.block.geo.TwoBlockTallStatueEntityBLock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,7 +17,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class KariatidaStatue extends TwoBlockTallStatueEntityBLock {
+public class KariatidaStatue extends GenericStatueBlock {
     public KariatidaStatue(Properties pProperties) {
         super(pProperties);
     }

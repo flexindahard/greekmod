@@ -1,8 +1,7 @@
-package com.flexindahard.greekmod.block.geo;
+package com.flexindahard.greekmod.blockentity;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -15,11 +14,11 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 // Класс представляет собой собирательный BlockEntity в обёртке GeoBlockEntity.
 
-public class GenericStaticalGeoBlockEntity extends BlockEntity implements GeoBlockEntity {
+public class SimpleStatueBlockEntity extends BlockEntity implements GeoBlockEntity {
 
      private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
-    public GenericStaticalGeoBlockEntity(BlockPos pPos, BlockState pBlockState) {
+    public SimpleStatueBlockEntity(BlockPos pPos, BlockState pBlockState) {
             super(ModBlockEntities.GENERIC_STATICAL_BLOCK_ENTITY.get(), pPos, pBlockState);
     }
 
@@ -30,7 +29,7 @@ public class GenericStaticalGeoBlockEntity extends BlockEntity implements GeoBlo
     }
 
     // Если нужна анимация - название должно точно совпадать с названием в файле .animation.json
-    private PlayState predicate(AnimationState<GenericStaticalGeoBlockEntity> state) {
+    private PlayState predicate(AnimationState<SimpleStatueBlockEntity> state) {
 
 //        state.getController().setAnimation(RawAnimation.begin().thenLoop("zeus_block"));
 //        return PlayState.CONTINUE;

@@ -1,6 +1,7 @@
 package com.flexindahard.greekmod.block.geo.statues;
 
 import com.flexindahard.greekmod.Greekmod;
+import com.flexindahard.greekmod.blockentity.GrayStatueBlockEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.registries.ForgeRegistries;
 import software.bernie.geckolib.model.GeoModel;

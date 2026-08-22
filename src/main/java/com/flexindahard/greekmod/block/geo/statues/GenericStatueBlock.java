@@ -1,5 +1,6 @@
-package com.flexindahard.greekmod.block.geo;
+package com.flexindahard.greekmod.block.geo.statues;
 
+import com.flexindahard.greekmod.block.geo.GenericStaticalEntityBlock;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
@@ -27,7 +28,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
+public class GenericStatueBlock extends GenericStaticalEntityBlock {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     public static final VoxelShape WOMAN_SHAPE_NORTH = Block.box(3, 0, 4, 13, 16, 12);
@@ -36,7 +37,7 @@ public class TwoBlockTallStatueEntityBLock extends GenericStaticalEntityBlock {
     public static final VoxelShape MAN_SHAPE_EAST = Block.box(6, 0, 2.5, 13.5, 16, 13.5);
     public static final VoxelShape MAN_SHAPE_SOUTH = Block.box(2.5, 0, 6, 13.5, 16, 13.5);
     public static final VoxelShape MAN_SHAPE_WEST = Block.box(2.5, 0, 2.5, 10, 16, 13.5);
-    public TwoBlockTallStatueEntityBLock(Properties pProperties) {
+    public GenericStatueBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState()
                 .setValue(FACING, Direction.NORTH)

@@ -41,5 +41,7 @@
   "block.greekmod.button_gold": "Кнопка золотая",
   "block.greekmod.button_shield": "Кнопка щит",
   "block.greekmod.scroll": "Свиток",
-  "block.greekmod.lira": "Лира"
+  "block.greekmod.lira": "Лира",
+  "block.greekmod.altar": "Алтарь",
+  "container.clay_table": "Гончарный Столик"
 }

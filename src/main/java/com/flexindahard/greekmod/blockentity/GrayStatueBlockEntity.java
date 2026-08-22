@@ -1,4 +1,4 @@
-package com.flexindahard.greekmod.block.geo.statues;
+package com.flexindahard.greekmod.blockentity;
 
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoBlockEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -58,6 +59,7 @@ public class GrayStatueBlockEntity extends BlockEntity implements GeoBlockEntity
     public void setCounter(){
             this.counter = random.nextInt(8);
             setChanged();
+        if (level != null && !level.isClientSide)
             level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
     }
 
@@ -81,5 +83,12 @@ public class GrayStatueBlockEntity extends BlockEntity implements GeoBlockEntity
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
+    }
+
+    @Override
+    public AABB getRenderBoundingBox() {
+        BlockPos pos = getBlockPos();
+        return new AABB(pos.getX(), pos.getY(), pos.getZ(),
+                pos.getX() + 1, pos.getY() + 2, pos.getZ() + 1);
     }
 }

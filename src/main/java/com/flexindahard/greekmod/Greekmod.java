@@ -1,12 +1,14 @@
 package com.flexindahard.greekmod;
 
 
-import com.flexindahard.greekmod.block.geo.GeoBlockEntityRenderer;
-import com.flexindahard.greekmod.block.geo.statues.GrayStatueRenderer;
+import com.flexindahard.greekmod.client.renderer.AltarRenderer;
+import com.flexindahard.greekmod.client.renderer.GeoBlockEntityRenderer;
+import com.flexindahard.greekmod.client.renderer.GrayStatueRenderer;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import com.flexindahard.greekmod.registries.ModBlocks;
 import com.flexindahard.greekmod.registries.ModCreativeTab;
 import com.flexindahard.greekmod.registries.ModItems;
+import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,6 +21,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -26,6 +29,8 @@ import software.bernie.geckolib.GeckoLib;
 public class Greekmod {
 
     public static final String MODID = "greekmod";
+
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Greekmod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -67,6 +72,9 @@ public class Greekmod {
 
             event.registerBlockEntityRenderer(ModBlockEntities.GRAY_STATUE_BLOCK_ENTITY.get(),
                     GrayStatueRenderer::new);
+
+            event.registerBlockEntityRenderer(ModBlockEntities.ALTAR_BLOCK_ENTITY.get(),
+                    AltarRenderer::new);
         }
     }
 
