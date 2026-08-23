@@ -17,7 +17,8 @@ import static com.flexindahard.greekmod.registries.ModItems.*;
 public class ModCreativeTab {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-    public static final RegistryObject<CreativeModeTab> greekmod_creative_tab =
+
+    public static final RegistryObject<CreativeModeTab> GREEKMOD_CREATIVE_TAB =
             CREATIVE_MODE_TABS.register("greekmod_creative_tab", () -> CreativeModeTab.builder().title(Component.translatable("creativetab.greekmod.greekmod_creative_tab"))
                     .withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> VASE.get().asItem().getDefaultInstance())
                     .displayItems((parameters, output) -> {
@@ -68,6 +69,14 @@ public class ModCreativeTab {
         output.accept(ALTAR.get());
         // Item
         output.accept(HERMES_BOOTS.get());
+        output.accept(BRONZE_AXE.get());
+        output.accept(BRONZE_PICKAXE.get());
+        output.accept(BRONZE_SWORD.get());
+        output.accept(BRONZE_SHOVEL.get());
+        output.accept(BRONZE_HELMET.get());
+        output.accept(BRONZE_CHESTPLATE.get());
+        output.accept(BRONZE_LEGGINGS.get());
+        output.accept(BRONZE_BOOTS.get());
             }
     ).build());
 

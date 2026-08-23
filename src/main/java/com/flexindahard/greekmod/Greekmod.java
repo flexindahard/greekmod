@@ -39,12 +39,9 @@ public class Greekmod {
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so tabs get registered
-        ModCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
-
         ModBlocks.register(modEventBus);
-
         ModItems.register(modEventBus);
-
+        ModCreativeTab.register(modEventBus);
         ModBlockEntities.register(modEventBus);
 
         GeckoLib.initialize();

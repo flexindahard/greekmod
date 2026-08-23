@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 import static com.flexindahard.greekmod.block.geo.GenericStaticalEntityBlock.FACING;
@@ -27,7 +26,7 @@ public class AltarRenderer implements BlockEntityRenderer<AltarBlockEntity> {
     public void render(AltarBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
         pPoseStack.pushPose();
         Level level = pBlockEntity.getLevel();
-        ItemStack stack = Items.BEEF.getDefaultInstance();
+        ItemStack stack = pBlockEntity.getSlot();
         Direction blockDirection = pBlockEntity.getBlockState().getValue(FACING);
         double gameTime = level.getGameTime() + pPartialTick;
         double offsetY = Math.sin(gameTime / 12) /24;

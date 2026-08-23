@@ -43,5 +43,13 @@
   "block.greekmod.scroll": "Свиток",
   "block.greekmod.lira": "Лира",
   "block.greekmod.altar": "Алтарь",
-  "container.clay_table": "Гончарный Столик"
+  "container.clay_table": "Гончарный Столик",
+  "item.greekmod.bronze_pickaxe": "Бронзовая кирка",
+  "item.greekmod.bronze_axe": "Бронзовый топор",
+  "item.greekmod.bronze_sword": "Бронзовый меч",
+  "item.greekmod.bronze_shovel": "Бронзовая лопатка",
+  "item.greekmod.bronze_helmet": "Бронзовый шлем",
+  "item.greekmod.bronze_chestplate": "Бронзовый нагрудник",
+  "item.greekmod.bronze_leggings": "Бронзовые поножи",
+  "item.greekmod.bronze_boots": "Бронзовые ботинки"
 }

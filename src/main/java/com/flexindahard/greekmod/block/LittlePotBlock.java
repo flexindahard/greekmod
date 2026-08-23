@@ -47,11 +47,11 @@ public class LittlePotBlock extends SimplePotBlock {
 
     @Override
     public void playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-        pLevel.playSound(null, pPos, SoundEvents.DECORATED_POT_BREAK, SoundSource.BLOCKS, 1f ,1f);
             if (!pPlayer.isCreative())
             {
                 popResourceFromFace(pLevel, pPos, pState.getValue(FACING), new ItemStack(ModBlocks.LITTLE_POT.get(), pState.getValue(POTS)));
             }
+            super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
 
     }
 

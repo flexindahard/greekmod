@@ -252,6 +252,7 @@ public class ModBlocks {
             () -> new GenericModBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
+                    .sound(SoundType.WOOD)
             ));
     public static final RegistryObject<Block> BARELIEF_RED = registerBlock("barelief_red",
             () -> new VerticalBlock(BlockBehaviour.Properties.of()
