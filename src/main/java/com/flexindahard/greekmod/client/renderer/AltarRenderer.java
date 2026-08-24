@@ -23,6 +23,12 @@ public class AltarRenderer implements BlockEntityRenderer<AltarBlockEntity> {
     }
 
     @Override
+    public int getViewDistance() {
+        // Получает расстояние в чанках, умножаем на 16 блоков.
+        return Minecraft.getInstance().options.renderDistance().get()*16;
+    }
+
+    @Override
     public void render(AltarBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
         pPoseStack.pushPose();
         Level level = pBlockEntity.getLevel();

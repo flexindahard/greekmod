@@ -5,6 +5,7 @@ import com.flexindahard.greekmod.block.geo.*;
 import com.flexindahard.greekmod.block.geo.statues.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -14,6 +15,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import static com.flexindahard.greekmod.Greekmod.MODID;
@@ -26,6 +29,13 @@ public class ModBlocks {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
+    }
+
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+            ModItems.ITEMS.register(name, () -> {
+                Rarity rarity = block.get() instanceof GenericStatueBlock ? Rarity.EPIC : Rarity.COMMON;
+                   return new BlockItem(block.get(), new Item.Properties().rarity(rarity));
+            });
     }
 
     // Статичные блоки высотой 2, которые используют Geo модельки
@@ -175,6 +185,7 @@ public class ModBlocks {
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
+                    .requiresCorrectToolForDrops()
             ));
     public static final RegistryObject<GenericModBlock> AMFORA = registerBlock("amfora",
             () -> new SimplePotBlock(BlockBehaviour.Properties.of()
@@ -249,7 +260,7 @@ public class ModBlocks {
                     .noCollission()
             ));
     public static final RegistryObject<Block> SCROLL_SHELF = registerBlock("scroll_shelf",
-            () -> new GenericModBlock(BlockBehaviour.Properties.of()
+            () -> new ScrollShelfBlock(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(2.0f, 4f)
                     .sound(SoundType.WOOD)
@@ -350,9 +361,7 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
             ));
 
-    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
-    }
+
 
     public static void register(IEventBus iEventBus) {
         BLOCKS.register(iEventBus);

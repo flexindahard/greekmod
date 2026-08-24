@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=north": {
-      "model": "greekmod:block/scroll_shelf"
+    "facing=north,scroll=false": {
+      "model": "greekmod:block/scroll_shelf_empty"
     },
-    "facing=east": {
-      "model": "greekmod:block/scroll_shelf",
+    "facing=east,scroll=false": {
+      "model": "greekmod:block/scroll_shelf_empty",
       "y": 90
     },
-    "facing=south": {
-      "model": "greekmod:block/scroll_shelf",
+    "facing=south,scroll=false": {
+      "model": "greekmod:block/scroll_shelf_empty",
       "y": 180
     },
-    "facing=west": {
-      "model": "greekmod:block/scroll_shelf",
+    "facing=west,scroll=false": {
+      "model": "greekmod:block/scroll_shelf_empty",
+      "y": 270
+    },
+    "facing=north,scroll=true": {
+      "model": "greekmod:block/scroll_shelf_full"
+    },
+    "facing=east,scroll=true": {
+      "model": "greekmod:block/scroll_shelf_full",
+      "y": 90
+    },
+    "facing=south,scroll=true": {
+      "model": "greekmod:block/scroll_shelf_full",
+      "y": 180
+    },
+    "facing=west,scroll=true": {
+      "model": "greekmod:block/scroll_shelf_full",
       "y": 270
     }
   }

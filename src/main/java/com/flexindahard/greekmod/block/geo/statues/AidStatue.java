@@ -64,7 +64,7 @@ public class AidStatue extends GenericStatueBlock {
     // Убираем все остальные части статуи, когда игрок разрушает хотя бы один из блоков статуи.
     @Override
     public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide && player.isCreative()) {
+        if (!level.isClientSide) {
         Direction direction = state.getValue(FACING);
         DoubleBlockHalf half = state.getValue(HALF);
         // По-умолчанию считаем, что сломали основной блок.

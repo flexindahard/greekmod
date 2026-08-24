@@ -69,7 +69,7 @@ public class KariatidaStatue extends GenericStatueBlock {
         BlockPos secondPos = pos.above();
         BlockPos thirdPos = pos.below();
 
-        if (!level.isClientSide && player.isCreative()) {
+        if (!level.isClientSide) {
             DoubleBlockHalf half = state.getValue(HALF);
             BlockState secondState = level.getBlockState(secondPos);
             BlockState thirdState = level.getBlockState(thirdPos);

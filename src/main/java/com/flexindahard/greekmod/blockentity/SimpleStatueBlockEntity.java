@@ -47,7 +47,7 @@ public class SimpleStatueBlockEntity extends BlockEntity implements GeoBlockEnti
     @Override
     public AABB getRenderBoundingBox() {
         BlockPos pos = getBlockPos();
-        return new AABB(pos.getX(), pos.getY(), pos.getZ(),
+        return new AABB(pos.getX() - 1, pos.getY(), pos.getZ() - 1,
                 pos.getX() + 1, pos.getY() + 2, pos.getZ() + 1);
     }
 

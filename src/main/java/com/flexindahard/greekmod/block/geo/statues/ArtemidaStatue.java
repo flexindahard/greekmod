@@ -63,7 +63,7 @@ public class ArtemidaStatue extends GenericStatueBlock {
 
     @Override
     public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-        if (!level.isClientSide && player.isCreative()) {
+        if (!level.isClientSide) {
         Direction direction = state.getValue(FACING).getOpposite();
         DoubleBlockHalf half = state.getValue(HALF);
         // По-умолчанию считаем, что сломали основной блок.

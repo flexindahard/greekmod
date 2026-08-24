@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E E",
+    "EEE",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "greekmod:vase",
+    "count": 1
+  }
+}

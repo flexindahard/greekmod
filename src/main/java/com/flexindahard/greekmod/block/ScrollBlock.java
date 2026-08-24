@@ -1,6 +1,8 @@
 package com.flexindahard.greekmod.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -41,6 +43,7 @@ public class ScrollBlock extends GenericModBlock {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if(!pLevel.isClientSide && pHand == InteractionHand.MAIN_HAND){
+            pLevel.playSound(null, pPos, SoundEvents.BOOK_PAGE_TURN, SoundSource.BLOCKS);
             pLevel.setBlock(pPos, pState.cycle(EXPANDED), 3);
             return InteractionResult.SUCCESS;
         }
