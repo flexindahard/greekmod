@@ -12,7 +12,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import static com.flexindahard.greekmod.block.geo.GenericStaticalEntityBlock.FACING;
+import static com.flexindahard.greekmod.block.templates.GenericStaticalEntityBlock.FACING;
 
 public class AltarRenderer implements BlockEntityRenderer<AltarBlockEntity> {
 

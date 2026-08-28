@@ -51,5 +51,8 @@
   "item.greekmod.bronze_helmet": "Бронзовый шлем",
   "item.greekmod.bronze_chestplate": "Бронзовый нагрудник",
   "item.greekmod.bronze_leggings": "Бронзовые поножи",
-  "item.greekmod.bronze_boots": "Бронзовые ботинки"
+  "item.greekmod.bronze_boots": "Бронзовые ботинки",
+  "key.categories.greekmod": "Греция",
+  "key.greekmod.noob_key": "Нубочек",
+  "key.greekmod.hermes_jump_key": "Прыжок Гермеса"
 }

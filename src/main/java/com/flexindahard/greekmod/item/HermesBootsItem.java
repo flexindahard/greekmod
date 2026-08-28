@@ -9,30 +9,19 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.phys.Vec3;
 
 public class HermesBootsItem extends ArmorItem {
-
-
 
     public HermesBootsItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
 
-    // hermesJump без проверки !level.isClientSide() + use с проверкой не работает.
-    // пока что работает только без проверок вообще
     public static void hermesJump(LevelAccessor level, Player player) {
-                player.jumpFromGround();
+        Vec3 motion = player.getDeltaMovement();
+        player.setDeltaMovement(motion.x, motion.y + 0.3, motion.z);
+        player.hurtMarked = true; // форсирует отправку скорости клиенту
                 Greekmod.LOGGER.info("hermesJump void activated");
-    }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        ItemStack itemStack = pPlayer.getMainHandItem();
-        if (!pLevel.isClientSide) {
-            Greekmod.LOGGER.info("Using Hermes boots");
-        }
-        hermesJump(pLevel, pPlayer);
-        return InteractionResultHolder.success(itemStack);
     }
 }
 

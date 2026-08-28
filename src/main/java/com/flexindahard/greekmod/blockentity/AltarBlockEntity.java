@@ -2,12 +2,19 @@ package com.flexindahard.greekmod.blockentity;
 
 import com.flexindahard.greekmod.Greekmod;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -18,6 +25,23 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class AltarBlockEntity extends BlockEntity {
+
+    // Спросить почему поле ticks реально влияет на тики, хотя даже в BlockEntity классе родителе нет ничего про тики.
+    private int ticks;
+    private RandomSource randomSource = RandomSource.create();
+    private long activatedTick = -1;
+    public static final int smokeTime = 3*20;
+
+    public void activate (){
+        this.activatedTick = level.getGameTime();
+        setChanged();
+        level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
+    }
+
+    public boolean isActive(){
+        return activatedTick != -1
+                && level.getGameTime() - activatedTick < smokeTime;
+    }
 
     // Анонимный класс, который говорит сущности сохраняться после изменений в инвентаре.
     private final ItemStackHandler inventory = new ItemStackHandler(1)
@@ -41,6 +65,8 @@ public class AltarBlockEntity extends BlockEntity {
         return super.getCapability(cap);
     }
 
+
+
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
@@ -57,6 +83,7 @@ public class AltarBlockEntity extends BlockEntity {
         super.load(nbt);
         CompoundTag greekModData = nbt.getCompound(Greekmod.MODID);
         this.inventory.deserializeNBT(greekModData.getCompound("Inventory"));
+        this.activatedTick = greekModData.getLong("activatedTick");
     }
 
     @Override
@@ -65,12 +92,20 @@ public class AltarBlockEntity extends BlockEntity {
         // var greekModData = new CompoundTag();
         CompoundTag greekModData = nbt.getCompound(Greekmod.MODID);
         greekModData.put("Inventory", this.inventory.serializeNBT());
+        greekModData.putLong("activatedTick", activatedTick);
         nbt.put(Greekmod.MODID, greekModData);
     }
 
     @Override
     public CompoundTag getUpdateTag() {
-        return saveWithoutMetadata();
+        CompoundTag nbt = new CompoundTag();
+        saveAdditional(nbt);
+        return nbt;
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag nbt) {
+        load(nbt);
     }
 
     @Override
@@ -88,5 +123,17 @@ public class AltarBlockEntity extends BlockEntity {
 
     public void setSlot(ItemStack itemStack) {
         this.inventory.setStackInSlot(0, itemStack);
+    }
+
+    public void tick(BlockPos pos, AltarBlockEntity blockEntity){
+        if (this.level == null) return;
+        if (blockEntity.isActive())
+        {
+            if (this.ticks++ % 10 == 0)
+            {
+                level.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, true,
+                        pos.getX() + 0.5, pos.getY() + 0.2, pos.getZ() + 0.5, 0, 0.1f, 0);
+            }
+        }
     }
 }

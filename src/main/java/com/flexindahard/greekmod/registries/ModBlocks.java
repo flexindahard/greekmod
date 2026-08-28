@@ -1,8 +1,15 @@
 package com.flexindahard.greekmod.registries;
 
-import com.flexindahard.greekmod.block.*;
-import com.flexindahard.greekmod.block.geo.*;
-import com.flexindahard.greekmod.block.geo.statues.*;
+import com.flexindahard.greekmod.block.custom.*;
+import com.flexindahard.greekmod.block.geo.common.GrayStatue;
+import com.flexindahard.greekmod.block.geo.common.KariatidaStatue;
+import com.flexindahard.greekmod.block.geo.common.KifaraBlock;
+import com.flexindahard.greekmod.block.geo.common.PifosBlock;
+import com.flexindahard.greekmod.block.geo.gods.*;
+import com.flexindahard.greekmod.block.templates.GenericModBlock;
+import com.flexindahard.greekmod.block.templates.GodStatueBlock;
+import com.flexindahard.greekmod.block.templates.SimplePotBlock;
+import com.flexindahard.greekmod.block.templates.VerticalBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -15,8 +22,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 import static com.flexindahard.greekmod.Greekmod.MODID;
@@ -33,13 +38,16 @@ public class ModBlocks {
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
             ModItems.ITEMS.register(name, () -> {
-                Rarity rarity = block.get() instanceof GenericStatueBlock ? Rarity.EPIC : Rarity.COMMON;
+                Rarity rarity = block.get() instanceof GodStatueBlock ? Rarity.EPIC : Rarity.COMMON;
                    return new BlockItem(block.get(), new Item.Properties().rarity(rarity));
             });
     }
 
-    // Статичные блоки высотой 2, которые используют Geo модельки
+    public static void register(IEventBus iEventBus) {
+        BLOCKS.register(iEventBus);
+    }
 
+    // БОГИ
     public static final RegistryObject<Block> ZEUS = registerBlock("zeus",
             () -> new ZeusStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
@@ -48,14 +56,14 @@ public class ModBlocks {
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> AFRODITA = registerBlock("afrodita",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new AfroditaStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> POSEIDON = registerBlock("poseidon",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new PoseidonStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
@@ -69,32 +77,25 @@ public class ModBlocks {
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> AFINA = registerBlock("afina",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new AfinaStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> NIKA = registerBlock("nika",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new NikaStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
                     .strength(3.0f, 4f)
                     .lightLevel(value -> 8)
             ));
-    // Переделать Кариатиду - она 3 блока в высоту
-    public static final RegistryObject<Block> KARIATIDA = registerBlock("kariatida",
-            () -> new KariatidaStatue(BlockBehaviour.Properties.of()
+    public static final RegistryObject<Block> DIONYS = registerBlock("dionys",
+            () -> new DionysStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_GRAY)
+                    .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
-            ));
-    public static final RegistryObject<Block> STELLA = registerBlock("stella",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_GRAY)
-                    .strength(3.0f, 4f)
-                    .lightLevel(value -> 5)
+                    .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> APOLLON = registerBlock("apollon",
             () -> new ApollonStatue(BlockBehaviour.Properties.of()
@@ -104,27 +105,14 @@ public class ModBlocks {
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> GERA = registerBlock("gera",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new GeraStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_GRAY)
-                    .strength(3.0f, 4f)
-                    .lightLevel(value -> 8)
-            ));
-    public static final RegistryObject<Block> KIFARA = registerBlock("kifara",
-            () -> new KifaraBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_GRAY)
-                    .strength(3.0f, 4f)
-            ));
-    public static final RegistryObject<Block> DIONYS = registerBlock("dionys",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
-                    .noOcclusion()
-                    .mapColor(MapColor.TERRACOTTA_BROWN)
                     .strength(3.0f, 4f)
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> ASKLEPIY = registerBlock("asklepiy",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new AsklepiyStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_WHITE)
                     .strength(3.0f, 4f)
@@ -138,7 +126,7 @@ public class ModBlocks {
                     .lightLevel(value -> 8)
             ));
     public static final RegistryObject<Block> DEMETRA = registerBlock("demetra",
-            () -> new GenericStatueBlock(BlockBehaviour.Properties.of()
+            () -> new DemetraStatue(BlockBehaviour.Properties.of()
                     .noOcclusion()
                     .mapColor(MapColor.TERRACOTTA_WHITE)
                     .strength(3.0f, 4f)
@@ -158,6 +146,29 @@ public class ModBlocks {
                     .strength(3.0f, 4f)
                     .lightLevel(value -> 8)
             ));
+
+    // Статичные блоки высотой 2, которые используют Geo модельки
+    public static final RegistryObject<Block> KARIATIDA = registerBlock("kariatida",
+            () -> new KariatidaStatue(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_GRAY)
+                    .strength(3.0f, 4f)
+            ));
+    public static final RegistryObject<Block> STELLA = registerBlock("stella",
+            () -> new GodStatueBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_GRAY)
+                    .strength(3.0f, 4f)
+                    .lightLevel(value -> 5)
+            ));
+    public static final RegistryObject<Block> KIFARA = registerBlock("kifara",
+            () -> new KifaraBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
+                    .mapColor(MapColor.TERRACOTTA_GRAY)
+                    .strength(3.0f, 4f)
+            ));
+
+
 
     public static final RegistryObject<Block> PIFOS = registerBlock("pifos",
             () -> new PifosBlock(BlockBehaviour.Properties.of()
@@ -360,12 +371,6 @@ public class ModBlocks {
                     .strength(2.0f, 4f)
                     .sound(SoundType.STONE)
             ));
-
-
-
-    public static void register(IEventBus iEventBus) {
-        BLOCKS.register(iEventBus);
-    }
 }
 
 

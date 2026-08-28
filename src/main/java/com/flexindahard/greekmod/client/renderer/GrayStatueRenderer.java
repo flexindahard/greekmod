@@ -1,7 +1,7 @@
 package com.flexindahard.greekmod.client.renderer;
 
 import com.flexindahard.greekmod.blockentity.GrayStatueBlockEntity;
-import com.flexindahard.greekmod.block.geo.statues.GrayStatueModel;
+import com.flexindahard.greekmod.block.geo.GrayStatueModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoBlockRenderer;

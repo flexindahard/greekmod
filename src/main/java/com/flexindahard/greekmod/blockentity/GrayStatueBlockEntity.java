@@ -19,8 +19,8 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public class GrayStatueBlockEntity extends BlockEntity implements GeoBlockEntity {
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private int counter;
     RandomSource random = RandomSource.create();
+    private int counter;
 
     public GrayStatueBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.GRAY_STATUE_BLOCK_ENTITY.get(), pPos, pBlockState);
@@ -42,25 +42,18 @@ public class GrayStatueBlockEntity extends BlockEntity implements GeoBlockEntity
         return this.counter;
     }
 
-    public void incrementCounter(){
-        if (this.counter<7)
-            ++this.counter;
-        setChanged();
-        level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
-    }
-
-    public void decrementCounter(){
-        if (this.counter>0)
-            --this.counter;
-        setChanged();
-        level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-    }
+//    public void incrementCounter(){
+//        if (this.counter<7)
+//            ++this.counter;
+//        setChanged();
+//        level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+//    }
 
     public void setCounter(){
             this.counter = random.nextInt(8);
+                if (level != null && !level.isClientSide)
+                    level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             setChanged();
-        if (level != null && !level.isClientSide)
-            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
     }
 
     // Синхронизация при обновлении блока.
@@ -76,9 +69,7 @@ public class GrayStatueBlockEntity extends BlockEntity implements GeoBlockEntity
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-
-    }
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) { }
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
