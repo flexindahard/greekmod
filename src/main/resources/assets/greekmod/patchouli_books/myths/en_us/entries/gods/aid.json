@@ -1,0 +1,11 @@
+{
+  "name": "Аид",
+  "icon": "greekmod:aid",
+  "category": "greekmod:gods",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Здесь мы расскажем про Аида"
+    }
+  ]
+}

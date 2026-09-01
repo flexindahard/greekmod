@@ -2,18 +2,13 @@ package com.flexindahard.greekmod.blockentity;
 
 import com.flexindahard.greekmod.Greekmod;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,11 +19,13 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
+
 public class AltarBlockEntity extends BlockEntity {
 
     // Спросить почему поле ticks реально влияет на тики, хотя даже в BlockEntity классе родителе нет ничего про тики.
     private int ticks;
-    private RandomSource randomSource = RandomSource.create();
+    private Random randomSource = new Random(128);
     private long activatedTick = -1;
     public static final int smokeTime = 3*20;
 
@@ -129,10 +126,21 @@ public class AltarBlockEntity extends BlockEntity {
         if (this.level == null) return;
         if (blockEntity.isActive())
         {
-            if (this.ticks++ % 10 == 0)
+            if (this.ticks++ % 3 == 0)
             {
+                float xSpeed = randomSource.nextFloat(-0.01f, 0.02f );
+                float ySpeed = randomSource.nextFloat(0.05f, 0.11f );
+                float zSpeed = randomSource.nextFloat(-0.01f, 0.02f );
+
+                float xOffset = randomSource.nextFloat(-0.2f, 0.21f);
+                float yOffset = randomSource.nextFloat(-0.1f, 0.21f);
+                float zOffset = randomSource.nextFloat(-0.2f, 0.21f);
+
                 level.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, true,
-                        pos.getX() + 0.5, pos.getY() + 0.2, pos.getZ() + 0.5, 0, 0.1f, 0);
+                        pos.getX() + 0.5 + xOffset, pos.getY() + 0.2 + yOffset, pos.getZ() + 0.5 + zOffset, xSpeed, ySpeed, zSpeed);
+
+                    level.addParticle(ParticleTypes.FLAME, true,
+                            pos.getX() + 0.5 + xOffset, pos.getY() + 0.2 + yOffset, pos.getZ() + 0.5 + zOffset, xSpeed, ySpeed, zSpeed);
             }
         }
     }

@@ -6,14 +6,14 @@ import com.flexindahard.greekmod.blockentity.AltarBlockEntity;
 import com.flexindahard.greekmod.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
@@ -23,7 +23,6 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -73,9 +72,7 @@ public class AltarBlock extends GenericModBlock implements EntityBlock {
             ItemStackHandler altarInventory = altar.getInventory();
             ItemStack handStack = player.getMainHandItem();
             Direction direction = player.getDirection();
-//            ServerLevel serverLevelAccessor = level.getServer().overworld();
-            // Если в руках огниво и на алтаре есть жертва
-            if (handStack.getItem() == Items.FLINT_AND_STEEL && !altarInventory.getStackInSlot(0).isEmpty()) {
+            if (handStack.getItem() == Items.FLINT_AND_STEEL && !altar.getSlot().isEmpty()) {
                 // Проверяем есть ли статуя для поклонения
                 if (level.getBlockState(pos.relative(direction, 1).above()).getBlock() instanceof GodStatueBlock god) {
                     // Звук.
@@ -96,7 +93,7 @@ public class AltarBlock extends GenericModBlock implements EntityBlock {
             // Все остальные случаи, когда в руках нет огнива
             //
             if (handStack.isEmpty()) {
-                if (altarInventory.getStackInSlot(0).isEmpty()) {
+                if (altar.getSlot().isEmpty()) {
                     // И слот и рука пустые
                     return InteractionResult.CONSUME;
                 } else {
@@ -107,14 +104,24 @@ public class AltarBlock extends GenericModBlock implements EntityBlock {
                     return InteractionResult.SUCCESS;
                 }
             } else {
-                if (altarInventory.getStackInSlot(0).isEmpty()) {
+                if (altar.getSlot().isEmpty() || (altar.getSlot().getCount() < 64 && altar.getSlot().getItem() == handStack.getItem())) {
                     // Кладём в алтарь
-                    ItemStack toInsert = handStack.copy();
+                    int handCount = handStack.getCount(); // Сколько в руке
+                    Item handItem = handStack.getItem(); // Какой предмет в руке
+                    // Создаём стак для вставки
+                    int insertCount = Math.min(handCount, 16); // Сколько вставить (до 16 за раз)
+                    ItemStack toInsert = new ItemStack(handItem, insertCount);
+                    // Убираем столько, сколько вставляем.
+                    player.getMainHandItem().setCount(handCount - toInsert.getCount());
+                    // Вставляем
                     altarInventory.insertItem(0, toInsert, false);
                     level.sendBlockUpdated(pos, state, state, 3);
-                    player.getMainHandItem().setCount(0);
+                    player.sendSystemMessage(Component.literal("[" + level.getGameTime()/20 + "] Вставляем " + insertCount + " предметов"));
+                    player.sendSystemMessage(Component.literal("[" + level.getGameTime()/20 + "] В алтаре " + altar.getSlot().getCount() + " предметов"));
                     return InteractionResult.SUCCESS;
-                } else {
+                }
+                else if (altarInventory.getStackInSlot(0).getCount() == 64)
+                {
                     // Инвентарь полон
                     return InteractionResult.CONSUME;
                 }

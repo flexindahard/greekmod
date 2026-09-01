@@ -1,0 +1,8 @@
+{
+  "name": "Мифы древней Греции",
+  "landing_text": "Добро пожаловать в мифы!",
+  "version": 1,
+  "creative_tab": "greekmod:greekmod_creative_tab",
+  "icon": "greekmod:vase",
+  "use_resource_pack": true
+}

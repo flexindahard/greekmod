@@ -1,0 +1,11 @@
+{
+  "name": "Афина",
+  "icon": "greekmod:afina",
+  "category": "greekmod:gods",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Здесь мы расскажем про Афину"
+    }
+  ]
+}
